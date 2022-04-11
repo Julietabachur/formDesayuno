@@ -41,12 +41,16 @@ let armadoDesayuno = () => {
       case 1: {
         desayuno.push(chocotorta.nombre)
         totalDesayuno.push(chocotorta.precio)
+        let lista = document.getElementById("lista")
+        lista.innerHTML =   '<h2> Su desayuno contiene: </h2> <p>1 porción de: ${chocotorta.nombre}</p> ';
         break;
       }
 
       case 2: {
         desayuno.push(pastafrola.nombre)
         totalDesayuno.push(pastafrola.precio)
+        let lista = document.getElementById("lista")
+        lista.innerHTML =   '<h2> Su desayuno contiene: </h2> <p>1 porción de: ${pastafrola.nombre}</p> ';
         break;
       }
 
@@ -69,12 +73,16 @@ let armadoDesayuno = () => {
       case 1: {
         desayuno.push(chipa.nombre);
         totalDesayuno.push(chipa.precio);
+        let lista = document.getElementById("lista")
+        lista.innerHTML = '<p>1 porción de: ${chipa.nombre}</p> ';
         break;
       }
 
       case 2: {
         desayuno.push(sandwich.nombre);
         totalDesayuno.push(sandwich.precio);
+        let lista = document.getElementById("lista")
+        lista.innerHTML = '<p>1 ${sandwich.nombre}</p> ';
         break;
       }
 
