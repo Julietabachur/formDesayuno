@@ -20,6 +20,9 @@ const peluche = new Regalo ("Peluche", 1500, 1, "Peluche con corazon");
 const desayuno = []
 const totalDesayuno = []
 
+//traigo div lista
+let lista = document.getElementById("div-lista")
+
 //funcion precio del desayuno
 let preciofinal = () => {
   const precio = totalDesayuno.reduce( (acc, item) => {return acc += item }, 0 )
@@ -41,16 +44,18 @@ let armadoDesayuno = () => {
       case 1: {
         desayuno.push(chocotorta.nombre)
         totalDesayuno.push(chocotorta.precio)
-        let lista = document.getElementById("lista")
-        lista.innerHTML =   '<h2> Su desayuno contiene: </h2> <p>1 porción de: ${chocotorta.nombre}</p> ';
+        const lista = document.createElement("ul")
+        lista.innerHTML =  '<li>1 porción de: ${chocotorta.nombre}</li> ';
+        div-lista.appendChild(lista)
         break;
       }
 
       case 2: {
         desayuno.push(pastafrola.nombre)
         totalDesayuno.push(pastafrola.precio)
-        let lista = document.getElementById("lista")
-        lista.innerHTML =   '<h2> Su desayuno contiene: </h2> <p>1 porción de: ${pastafrola.nombre}</p> ';
+        const lista = document.createElement("ul")
+        lista.innerHTML = '<li>1 porción de: ${pastafrola.nombre}</li>';
+        div-lista.appendChild(lista)
         break;
       }
 
@@ -73,8 +78,9 @@ let armadoDesayuno = () => {
       case 1: {
         desayuno.push(chipa.nombre);
         totalDesayuno.push(chipa.precio);
-        let lista = document.getElementById("lista")
-        lista.innerHTML = '<p>1 porción de: ${chipa.nombre}</p> ';
+        const elementolista = document.createElement("li")
+        elementolista.innerText = '1 porción de: ${chipa.nombre}';
+        div-lista.appendChild(lista)
         break;
       }
 
