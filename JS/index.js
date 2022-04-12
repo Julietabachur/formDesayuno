@@ -21,7 +21,7 @@ const desayuno = []
 const totalDesayuno = []
 
 //traigo div lista
-let lista = document.getElementById("div-lista")
+let divLista = document.getElementById("div-lista")
 
 //funcion precio del desayuno
 let preciofinal = () => {
@@ -45,8 +45,8 @@ let armadoDesayuno = () => {
         desayuno.push(chocotorta.nombre)
         totalDesayuno.push(chocotorta.precio)
         const lista = document.createElement("ul")
-        lista.innerHTML =  '<li>1 porción de: ${chocotorta.nombre}</li> ';
-        div-lista.appendChild(lista)
+        lista.innerHTML = '<li>1 porción de: ${chocotorta.nombre}</li> ';
+        divLista.appendChild(lista)
         break;
       }
 
@@ -55,7 +55,7 @@ let armadoDesayuno = () => {
         totalDesayuno.push(pastafrola.precio)
         const lista = document.createElement("ul")
         lista.innerHTML = '<li>1 porción de: ${pastafrola.nombre}</li>';
-        div-lista.appendChild(lista)
+        divLista.appendChild(lista)
         break;
       }
 
@@ -78,17 +78,16 @@ let armadoDesayuno = () => {
       case 1: {
         desayuno.push(chipa.nombre);
         totalDesayuno.push(chipa.precio);
-        const elementolista = document.createElement("li")
-        elementolista.innerText = '1 porción de: ${chipa.nombre}';
-        div-lista.appendChild(lista)
+        lista.innerHTML = '<li>1 porción de: ${chipa.nombre}</li>';
+        divLista.appendChild(lista)
         break;
       }
 
       case 2: {
         desayuno.push(sandwich.nombre);
         totalDesayuno.push(sandwich.precio);
-        let lista = document.getElementById("lista")
-        lista.innerHTML = '<p>1 ${sandwich.nombre}</p> ';
+        lista.innerHTML = '<li>1 ${sandwich.nombre}</li>';
+        divLista.appendChild(lista)
         break;
       }
 
@@ -112,12 +111,16 @@ let armadoDesayuno = () => {
       case 1: {
         desayuno.push(cafe.nombre);
         totalDesayuno.push(cafe.precio);
+        lista.innerHTML = '<li>1 taza de ${cafe.nombre}</li>';
+        divLista.appendChild(lista)
         break;
       }
 
       case 2: {
         desayuno.push(limonada.nombre);
         totalDesayuno.push(limonada.precio);
+        lista.innerHTML = '<li>1 vaso de ${limonada.nombre}</li>';
+        divLista.appendChild(lista)
         break;
       }
 
@@ -145,6 +148,8 @@ let armadoDesayuno = () => {
           case 1: {
             desayuno.push(taza.nombre)
             totalDesayuno.push(taza.precio)
+            lista.innerHTML = '<li>1 ${taza.nombre}</li>';
+            divLista.appendChild(lista)
             alert("Su desayuno contiene: " + desayuno.join(", "));
             break;
           }
