@@ -20,8 +20,8 @@ const peluche = new Regalo ("Peluche", 1500, 1, "Peluche con corazon");
 const desayuno = []
 const totalDesayuno = []
 
-//traigo div lista
-let divLista = document.getElementById("div-lista")
+//traigo lista
+let lista = document.getElementById("lista")
 
 //funcion precio del desayuno
 let preciofinal = () => {
@@ -44,18 +44,18 @@ let armadoDesayuno = () => {
       case 1: {
         desayuno.push(chocotorta.nombre)
         totalDesayuno.push(chocotorta.precio)
-        const lista = document.createElement("ul")
-        lista.innerHTML = '<li>1 porción de: ${chocotorta.nombre}</li> ';
-        divLista.appendChild(lista)
+        let prodLista = document.createElement("li")
+        prodLista.innerText  = `1 porción de: ${chocotorta.nombre}`;
+        lista.appendChild(prodLista)
         break;
       }
 
       case 2: {
         desayuno.push(pastafrola.nombre)
         totalDesayuno.push(pastafrola.precio)
-        const lista = document.createElement("ul")
-        lista.innerHTML = '<li>1 porción de: ${pastafrola.nombre}</li>';
-        divLista.appendChild(lista)
+        let prodLista = document.createElement("li")
+        prodLista.innerText  = `1 porción de: ${pastafrola.nombre}`; 
+        lista.appendChild(prodLista)
         break;
       }
 
@@ -78,16 +78,20 @@ let armadoDesayuno = () => {
       case 1: {
         desayuno.push(chipa.nombre);
         totalDesayuno.push(chipa.precio);
-        lista.innerHTML = '<li>1 porción de: ${chipa.nombre}</li>';
-        divLista.appendChild(lista)
+        let prodLista = document.createElement("li")
+        prodLista.innerText  = `1 porción de: ${chipa.nombre}`;
+        lista.appendChild(prodLista)
         break;
       }
 
       case 2: {
         desayuno.push(sandwich.nombre);
         totalDesayuno.push(sandwich.precio);
-        lista.innerHTML = '<li>1 ${sandwich.nombre}</li>';
-        divLista.appendChild(lista)
+        let prodLista = document.createElement("li")
+        prodLista.innerText  = `1 porción de: ${sandwich.nombre}`;
+        // lista.appendChild(prodLista)
+        // lista.innerHTML = '<li>1 ${sandwich.nombre}</li>';
+        // divLista.appendChild(lista)
         break;
       }
 
@@ -111,16 +115,18 @@ let armadoDesayuno = () => {
       case 1: {
         desayuno.push(cafe.nombre);
         totalDesayuno.push(cafe.precio);
-        lista.innerHTML = '<li>1 taza de ${cafe.nombre}</li>';
-        divLista.appendChild(lista)
+        let prodLista = document.createElement("li")
+        prodLista.innerText  = `1 taza de: ${cafe.nombre}`;
+        lista.appendChild(prodLista)
         break;
       }
 
       case 2: {
         desayuno.push(limonada.nombre);
         totalDesayuno.push(limonada.precio);
-        lista.innerHTML = '<li>1 vaso de ${limonada.nombre}</li>';
-        divLista.appendChild(lista)
+        let prodLista = document.createElement("li")
+        prodLista.innerText  = `1 vaso de: ${limonada.nombre}`;
+        lista.appendChild(prodLista)
         break;
       }
 
@@ -148,16 +154,18 @@ let armadoDesayuno = () => {
           case 1: {
             desayuno.push(taza.nombre)
             totalDesayuno.push(taza.precio)
-            lista.innerHTML = '<li>1 ${taza.nombre}</li>';
-            divLista.appendChild(lista)
-            alert("Su desayuno contiene: " + desayuno.join(", "));
+            let prodLista = document.createElement("li")
+            prodLista.innerText  = `1 reaglo: ${taza.nombre}`;
+            lista.appendChild(prodLista)
             break;
           }
 
           case 2: {
             desayuno.push(peluche.nombre)
             totalDesayuno.push(peluche.precio)
-            alert("Su desayuno contiene: " + desayuno.join(", "));
+            let prodLista = document.createElement("li")
+            prodLista.innerText  = `1 reaglo: ${taza.nombre}`;
+            lista.appendChild(prodLista)
             break;
           }
         }
