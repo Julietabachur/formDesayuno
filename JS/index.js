@@ -20,13 +20,16 @@ const peluche = new Regalo ("Peluche", 1500, 1, "Peluche con corazon");
 const desayuno = []
 const totalDesayuno = []
 
-//traigo lista
+//traigo el div de la lista y la lista
+let divLista = document.getElementById("divLista")
 let lista = document.getElementById("lista")
 
 //funcion precio del desayuno
 let preciofinal = () => {
   const precio = totalDesayuno.reduce( (acc, item) => {return acc += item }, 0 )
-    alert("El valor total de su desayuno es: $"+ precio );
+  let total = document.createElement("p")
+  total.innerText = "El valor total de su desayuno es: $"+ precio 
+  divLista.appendChild(total)
 }
 
 //funcion armado de desayuno
@@ -89,9 +92,6 @@ let armadoDesayuno = () => {
         totalDesayuno.push(sandwich.precio);
         let prodLista = document.createElement("li")
         prodLista.innerText  = `1 porción de: ${sandwich.nombre}`;
-        // lista.appendChild(prodLista)
-        // lista.innerHTML = '<li>1 ${sandwich.nombre}</li>';
-        // divLista.appendChild(lista)
         break;
       }
 
@@ -155,7 +155,7 @@ let armadoDesayuno = () => {
             desayuno.push(taza.nombre)
             totalDesayuno.push(taza.precio)
             let prodLista = document.createElement("li")
-            prodLista.innerText  = `1 reaglo: ${taza.nombre}`;
+            prodLista.innerText  = `1 regalo: ${taza.nombre}`;
             lista.appendChild(prodLista)
             break;
           }
@@ -164,14 +164,16 @@ let armadoDesayuno = () => {
             desayuno.push(peluche.nombre)
             totalDesayuno.push(peluche.precio)
             let prodLista = document.createElement("li")
-            prodLista.innerText  = `1 reaglo: ${taza.nombre}`;
+            prodLista.innerText  = `1 regalo: ${taza.nombre}`;
             lista.appendChild(prodLista)
             break;
           }
         }
       }
     } else {
-      alert("Si no desea agregar un regalo, su desayuno contiene: " + desayuno.join(", "));
+      let prodLista = document.createElement("li")
+            prodLista.innerText  = `SIN REGALO`;
+            lista.appendChild(prodLista)
     }
 
 };
