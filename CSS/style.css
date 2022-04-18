@@ -44,8 +44,33 @@ ul{
     background-color: azure;
 }
 
+li{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 15px;
+    background-color: azure; 
+    font-size: 1.5rem;
+}
+
 #divLista{
     margin: 2rem 0;
+}
+
+#divLista p{
+    font-size: 2rem;
+    color: azure;
+}
+
+#divLista button{
+    background-color: azure;
+    font-weight: 100;
+    color: palevioletred;
+    border: 1.5rem white ;
+    padding: 0.5rem;
+    margin: 1rem;
+    font-size: 1.2rem;
+    border-radius: 2rem;
 }
 
 #lista{
@@ -64,19 +89,20 @@ ul{
     font-size: 1.5rem;
 }
 
-li{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 0 15px;
-    background-color: azure; 
-    font-size: 1.5rem;
-}
 
 h1{
     font-size: 5rem;
     color: azure;
-    margin-bottom: 10rem;
+    margin-bottom: 6rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+h2{
+    font-size: 3rem;
+    color: azure;
+    margin: 1rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

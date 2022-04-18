@@ -27,9 +27,15 @@ let lista = document.getElementById("lista")
 //funcion precio del desayuno
 let preciofinal = () => {
   const precio = totalDesayuno.reduce( (acc, item) => {return acc += item }, 0 )
-  let total = document.createElement("p")
-  total.innerText = "El valor total de su desayuno es: $"+ precio 
+  let total = document.createElement("div")  
   divLista.appendChild(total)
+  let totaltexto = document.createElement("p")
+  totaltexto.innerText = "El valor total de su desayuno es:"
+  total.appendChild(totaltexto)
+  let totalPrecio = document.createElement("button")
+  totalPrecio.innerText = "$"+precio  
+  total.appendChild(totalPrecio)
+
 }
 
 //funcion armado de desayuno
