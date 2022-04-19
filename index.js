@@ -1,5 +1,3 @@
-alert("A continuacion te daremos opciones para armar tu desayuno");
-
 //tortas
 const chocotorta = new Tortas ("Chocotorta", 400, 1, "Crema de dulce de leche y queso con chocolinas");
 const pastafrola = new Tortas ("Pastafrola", 350, "Masa frola rellena de dulce de membrillo");
@@ -39,8 +37,7 @@ let preciofinal = () => {
 }
 
 //funcion armado de desayuno
-let armadoDesayuno = () => {
-
+let armadoDesayuno = () => { 
   let opcionTorta = "Seleccione la torta deseada\n";
   opcionTorta += "1. Chocotorta\n";
   opcionTorta += "2. Pastafrola\n";
@@ -52,7 +49,7 @@ let armadoDesayuno = () => {
     switch (eleccionTorta) {
       case 1: {
         desayuno.push(chocotorta.nombre)
-        totalDesayuno.push(chocotorta.precio)
+        totalDesayuno.push(chocotorta.precio)        
         let prodLista = document.createElement("li")
         prodLista.innerText  = `1 porción de: ${chocotorta.nombre}`;
         lista.appendChild(prodLista)
@@ -163,6 +160,7 @@ let armadoDesayuno = () => {
             let prodLista = document.createElement("li")
             prodLista.innerText  = `1 regalo: ${taza.nombre}`;
             lista.appendChild(prodLista)
+            preciofinal();
             break;
           }
 
@@ -172,6 +170,7 @@ let armadoDesayuno = () => {
             let prodLista = document.createElement("li")
             prodLista.innerText  = `1 regalo: ${taza.nombre}`;
             lista.appendChild(prodLista)
+            preciofinal();
             break;
           }
         }
@@ -180,10 +179,13 @@ let armadoDesayuno = () => {
       let prodLista = document.createElement("li")
             prodLista.innerText  = `SIN REGALO`;
             lista.appendChild(prodLista)
+            preciofinal();
+            
     }
 
 };
 
+let boton = document.getElementById("btncomenzar")
+boton.innerText = "¡COMENZAR!"
+boton.onclick = armadoDesayuno
 
-armadoDesayuno();
-preciofinal();
