@@ -21,23 +21,37 @@ const totalDesayuno = []
 //traigo el div de la lista y la lista
 let divLista = document.getElementById("divLista")
 let lista = document.getElementById("lista")
+let divTotal = document.getElementById("divTotal")
 
 //funcion precio del desayuno
 let preciofinal = () => {
-  const precio = totalDesayuno.reduce( (acc, item) => {return acc += item }, 0 )
-  let total = document.createElement("div")  
-  divLista.appendChild(total)
   let totaltexto = document.createElement("p")
   totaltexto.innerText = "El valor total de su desayuno es:"
-  total.appendChild(totaltexto)
+  divTotal.appendChild(totaltexto)
+  const precio = totalDesayuno.reduce( (acc, item) => {return acc += item }, 0 )  
   let totalPrecio = document.createElement("button")
   totalPrecio.innerText = "$"+precio  
-  total.appendChild(totalPrecio)
+  divTotal.appendChild(totalPrecio)  
+
+}
+
+//funcion boton reinicio
+let btnReiniciar = () => {
+  let botonReiniciar = document.createElement("button")
+  botonReiniciar.setAttribute("style")
+  divTotal.appendChild(botonReiniciar)
+  botonReiniciar.onclick = () =>{
+    lista.innerText = ""
+    divTotal.innerText = ""
+    armadoDesayuno()
+  }
 
 }
 
 //funcion armado de desayuno
 let armadoDesayuno = () => { 
+  lista.innerText = ""
+  divTotal.innerText=""
   let opcionTorta = "Seleccione la torta deseada\n";
   opcionTorta += "1. Chocotorta\n";
   opcionTorta += "2. Pastafrola\n";
@@ -168,7 +182,7 @@ let armadoDesayuno = () => {
             desayuno.push(peluche.nombre)
             totalDesayuno.push(peluche.precio)
             let prodLista = document.createElement("li")
-            prodLista.innerText  = `1 regalo: ${taza.nombre}`;
+            prodLista.innerText  = `1 regalo: ${peluche.nombre}`;
             lista.appendChild(prodLista)
             preciofinal();
             break;
@@ -180,12 +194,13 @@ let armadoDesayuno = () => {
             prodLista.innerText  = `SIN REGALO`;
             lista.appendChild(prodLista)
             preciofinal();
+            btnReiniciar()
             
     }
 
 };
 
-let boton = document.getElementById("btncomenzar")
-boton.innerText = "¡COMENZAR!"
-boton.onclick = armadoDesayuno
+let botonComenzar = document.getElementById("btncomenzar")
+botonComenzar.innerText = "¡COMENZAR!"
+botonComenzar.onclick = armadoDesayuno
 
