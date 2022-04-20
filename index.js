@@ -40,14 +40,16 @@ let preciofinal = () => {
 let reiniciar = () =>{
   lista.innerText = ""
   divTotal.innerText = ""
+  totalDesayuno = []
   armadoDesayuno()
 }
+
 
 
 //boton que reinicia simulador
 let btnReiniciar = () => {
   let botonReiniciar = document.createElement("button")
-  // botonReiniciar.setAttribute("style")  
+  botonReiniciar.innerText = "CREAR NUEVO DESAYUNO"
   botonReiniciar.onclick = reiniciar
   divTotal.appendChild(botonReiniciar)
 
