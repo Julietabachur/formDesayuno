@@ -15,8 +15,8 @@ const taza = new Regalo ("Taza", 700, 1, "Taza de cerámica");
 const peluche = new Regalo ("Peluche", 1500, 1, "Peluche con corazon");
 
 //arrays vacios de desayuno y precio el desayuno
-const desayuno = []
-const totalDesayuno = []
+let desayuno = []
+let totalDesayuno = []
 
 //traigo el div de la lista y la lista
 let divLista = document.getElementById("divLista")
@@ -25,13 +25,10 @@ let divTotal = document.getElementById("divTotal")
 
 //funcion precio del desayuno
 let preciofinal = () => {
-  let totaltexto = document.createElement("p")
-  totaltexto.innerText = "El valor total de su desayuno es:"
-  divTotal.appendChild(totaltexto)
   const precio = totalDesayuno.reduce( (acc, item) => {return acc += item }, 0 )  
-  let totalPrecio = document.createElement("button")
-  totalPrecio.innerText = "$"+precio  
-  divTotal.appendChild(totalPrecio)  
+  let total = document.createElement("p")
+  total.innerText = "El valor total de su desayuno es: $"+ precio
+  divTotal.appendChild(total)   
 
 }
 
@@ -47,13 +44,11 @@ let reiniciar = () =>{
 
 
 //boton que reinicia simulador
-let btnReiniciar = () => {
   let botonReiniciar = document.createElement("button")
   botonReiniciar.innerText = "CREAR NUEVO DESAYUNO"
   botonReiniciar.onclick = reiniciar
-  divTotal.appendChild(botonReiniciar)
-
-}
+  botonReiniciar.className = "btn btn-success d-flex justify-content"
+  
 
 //funcion armado de desayuno
 let armadoDesayuno = () => { 
@@ -180,6 +175,7 @@ let armadoDesayuno = () => {
             prodLista.innerText  = `1 regalo: ${taza.nombre}`;
             lista.appendChild(prodLista)
             preciofinal();
+            divTotal.appendChild(botonReiniciar)
             break;
           }
 
@@ -190,6 +186,7 @@ let armadoDesayuno = () => {
             prodLista.innerText  = `1 regalo: ${peluche.nombre}`;
             lista.appendChild(prodLista)
             preciofinal();
+            divTotal.appendChild(botonReiniciar)
             break;
           }
         }
@@ -199,7 +196,7 @@ let armadoDesayuno = () => {
             prodLista.innerText  = `SIN REGALO`;
             lista.appendChild(prodLista)
             preciofinal();
-            btnReiniciar()
+            divTotal.appendChild(botonReiniciar)
             
     }
 
@@ -207,5 +204,6 @@ let armadoDesayuno = () => {
 
 let botonComenzar = document.getElementById("btncomenzar")
 botonComenzar.innerText = "¡COMENZAR!"
+botonComenzar.className = "botonComenzar"
 botonComenzar.onclick = armadoDesayuno
 
