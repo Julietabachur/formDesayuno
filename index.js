@@ -35,23 +35,26 @@ let preciofinal = () => {
 
 }
 
-//funcion boton reinicio
+//funcion que vacía la lista y reinicia simulador
+
+let reiniciar = () =>{
+  lista.innerText = ""
+  divTotal.innerText = ""
+  armadoDesayuno()
+}
+
+
+//boton que reinicia simulador
 let btnReiniciar = () => {
   let botonReiniciar = document.createElement("button")
-  botonReiniciar.setAttribute("style")
+  // botonReiniciar.setAttribute("style")  
+  botonReiniciar.onclick = reiniciar
   divTotal.appendChild(botonReiniciar)
-  botonReiniciar.onclick = () =>{
-    lista.innerText = ""
-    divTotal.innerText = ""
-    armadoDesayuno()
-  }
 
 }
 
 //funcion armado de desayuno
 let armadoDesayuno = () => { 
-  lista.innerText = ""
-  divTotal.innerText=""
   let opcionTorta = "Seleccione la torta deseada\n";
   opcionTorta += "1. Chocotorta\n";
   opcionTorta += "2. Pastafrola\n";
