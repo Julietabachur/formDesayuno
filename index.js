@@ -1,27 +1,27 @@
 //tortas
-const chocotorta = new Tortas ("Chocotorta", 400, 1, "Crema de dulce de leche y queso con chocolinas");
-const pastafrola = new Tortas ("Pastafrola", 350, "Masa frola rellena de dulce de membrillo");
+const chocotorta = new Producto ("Chocotorta", 400, 1, "Crema de dulce de leche y queso con chocolinas");
+const pastafrola = new Producto ("Pastafrola", 350, "Masa frola rellena de dulce de membrillo");
 
 //salado
-const chipa = new Salado ("Chipa", 250, 3, "Chipa casero de 2 quesos" );
-const sandwich = new Salado ("Sandwich", 500, 4, "4 triangulos de miga" );
+const chipa = new Producto ("Chipa", 250, 3, "Chipa casero de 2 quesos" );
+const sandwich = new Producto ("Sandwich", 500, 4, "4 triangulos de miga" );
 
 //bebida
-const limonada = new Bebida ("Limonada", 250, 1,"Limonada con menta y jengibre");
-const cafe = new Bebida ("Cafe", 300, 1, "Cafe con leche");
+const limonada = new Producto ("Limonada", 250, 1,"Limonada con menta y jengibre");
+const cafe = new Producto ("Cafe", 300, 1, "Cafe con leche");
 
 //regalo
-const taza = new Regalo ("Taza", 700, 1, "Taza de cerámica");
-const peluche = new Regalo ("Peluche", 1500, 1, "Peluche con corazon");
+const taza = new Producto ("Taza", 700, 1, "Taza de cerámica");
+const peluche = new Producto ("Peluche", 1500, 1, "Peluche con corazon");
 
 //arrays vacios de desayuno y precio el desayuno
 let desayuno = []
 let totalDesayuno = []
 
 //traigo el div de la lista y la lista
-let divLista = document.getElementById("divLista")
-let lista = document.getElementById("lista")
-let divTotal = document.getElementById("divTotal")
+// let divLista = document.getElementById("divLista")
+// let lista = document.getElementById("lista")
+// let divTotal = document.getElementById("divTotal")
 
 //funcion precio del desayuno
 let preciofinal = () => {
@@ -40,8 +40,6 @@ let reiniciar = () =>{
   totalDesayuno = []
   armadoDesayuno()
 }
-
-
 
 //boton que reinicia simulador
   let botonReiniciar = document.createElement("button")

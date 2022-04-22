@@ -1,8 +1,8 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: palevioletred;
     font-family: 'Roboto', sans-serif;
+    background-color: white;
     text-align: center;
 }
 
@@ -10,25 +10,25 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: azure;     
+    background-color: white;     
     color: palevioletred;
     padding: 0 1rem;
 
 }
 
 #logo span{
-    background-color: azure;
+    background-color: white;
     font-size: 3rem;
     font-weight: 600;
 }
 
 header div{
-    background-color: azure; 
+    background-color: white; 
     align-items: center;  
 }
 
 nav{
-    background-color: azure; 
+    background-color: white; 
     display: flex;    
 }
 
@@ -37,7 +37,7 @@ ul{
     display: flex;
     justify-content: flex-start;
     flex-flow: row wrap;
-    background-color: azure;
+    background-color: white;
     margin: 0;
     padding: 0;
 }
@@ -47,7 +47,7 @@ li{
     justify-content: flex-start;
     align-items: center;
     margin: 0 1rem;
-    background-color: azure; 
+    background-color: white; 
     font-size: 1.5rem;
 }
 
@@ -57,12 +57,12 @@ li{
 
 #divLista p{
     font-size: 2rem;
-    color: azure;
+    color: white;
 }
 
 .botonComenzar {
-    color: azure;
-    border: 1.5rem azure ;
+    color: white;
+    border: 1.5rem white ;
     padding: 0.5rem;
     margin: 1rem;
     font-size: 1.2rem;
@@ -70,8 +70,8 @@ li{
 }
 
 /* .botonReiniciar{
-    color: azure;
-    border: 1.5rem azure ;
+    color: white;
+    border: 1.5rem white ;
     padding: 0.5rem;
     margin: 1rem;
     font-size: 1.2rem;
@@ -97,8 +97,9 @@ li{
 
 h1{
     font-size: 5rem;
-    color: azure;
-    margin-bottom: 6rem;
+    color: white;
+    background-color: palevioletred;
+    margin-bottom: 4rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -106,7 +107,7 @@ h1{
 
 h2{
     font-size: 3rem;
-    color: azure;
+    color: palevioletred;
     margin: 1rem;
     display: flex;
     justify-content: center;
@@ -115,10 +116,33 @@ h2{
 
 main{
     padding: 5rem;
+    background-color: palevioletred;
 }
 
-p{
+main p{
     font-size: 1.5rem;
+    background-color: palevioletred;
+    color: white;
+}
+
+.btn{
+    background-color: palevioletred;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.6rem;
+    margin: 1rem;
+}
+
+.btn:hover{
+    background-color: white;
+    color: palevioletred;
+    box-shadow: 0px 0px 32px 0px palevioletred;
+    border: 0.5rem palevioletred;
+
+}
+label{
+    margin: 0.5rem;
 }
 
 footer{
@@ -126,7 +150,7 @@ footer{
     justify-content: space-between;
     padding: 3rem;
     box-shadow: 0px -12px 5px -1px rgba(0,0,0,.15);
-    background-color: azure; 
+    background-color: white; 
     color: palevioletred;
 
 }
@@ -135,9 +159,6 @@ footer div{
  display: flex;
  align-items: center;
  flex-flow: column wrap;
- background-color: azure; 
+ background-color: white; 
 }
 
-footer div p{
-    background-color: azure; 
-}

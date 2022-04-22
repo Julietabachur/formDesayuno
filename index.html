@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css" />    
     <title>Practica JS 2</title>
   </head>
-  <body>
+  <body class="container-fluid">
     <header class="shadow p-3 mb-2 bg-body rounded">
       <div id="logo"><span>DOLCE JULIETA</span></div>
       <nav class="d-flex justify-content">
@@ -23,21 +23,45 @@
         </ul>
       </nav>
     </header>
-    <main class="container">
-      <section>
+    <main >      
         <h1>Arma tu desayuno perfecto</h1>
         <p>En vez de ofrecerte un desayuno pensado por nosotros</p>
-        <p>te damos opciones para que lo armes como más te gusta</p>
-        <p>Hacé click en el boton de abajo para comenzar</p>
+        <p>te damos opciones para que lo armes como más te gusta</p>        
+    </main>
+    <section class="m-5">
+      <form action="" >
+        <fieldset>
+          <h2>Ingresá tus datos personales</h2>
+          <div class="d-flex flex-wrap flex-column align-items-start offset-3 col-6 justify-content-start">
+            <label class="fs-4" for="nombres">Nombres
+              <input class="fs-5" type="text" name="nombres" id="nombres" placeholder="Ingresa tus nombres">
+            </label>
+            <label class="fs-4" for="apellidos">Apellidos
+              <input class="fs-5" type="text" name="apellidos" id="apellidos" placeholder="Ingresa tus apellidos">
+            </label>
+            <label class="fs-4" for="DNI">DNI (sin puntos ni guiones)
+              <input class="fs-5" type="number" name="DNI" id="DNI" placeholder="Ingresa tu DNI">
+            </label>
+            <label class="fs-4" for="email">Email
+              <input class="fs-5"  type="email" name="email" id="email" placeholder="Ingresa tu email">
+            </label>
+            <label class="fs-4" for="celular">Numero de contacto
+              <input class="fs-5" type="tel" name="celular" id="celular" placeholder="Ingresa tu celular">
+            </label>
+          </div>
+          <input class="btn" type="submit" value="Guardar">
+        </fieldset>
+      </form>
+    </section>
+        <!-- <p>Hacé click en el boton de abajo para comenzar</p>
         <button id="btncomenzar">¡COMENZAR!</button>
-      </section>
+      
       <div id="divLista">
         <h2>Tu desayuno contiene:</h2>
         <ul  id="lista"></ul> 
         <div  id="divTotal" class="d-flex justify-content align-content flex-wrap flex-column"></div>       
-      </div>
-    </main>
-    <footer class="">
+      </div> --> 
+    <footer>
       <div>
         <p>Creado por Julieta Bachur</p>
       </div>
