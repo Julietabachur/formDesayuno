@@ -18,7 +18,7 @@ const peluche = new Producto ("Peluche", 1500, 1, "Peluche con corazon");
 let desayuno = []
 let totalDesayuno = []
 
-//traigo el div de la lista y la lista
+//traigo el fieldset y boton
 let fieldset = document.getElementById("fieldset")
 let btnguardar = document.getElementById("btnguardar")
 
@@ -30,7 +30,7 @@ function crearUsuario() {
   const email = document.getElementById("email").value
   const celular = document.getElementById("celular").value 
   new Usuario (nombre, apellido, dni, email, celular)
-  localStorage.setItem( Usuario.dni , JSON.stringify(Usuario))
+  localStorage.setItem (Usuario.dni, JSON.stringify(Usuario))
 }
 
 function vaciarInputs(){  
@@ -41,13 +41,48 @@ function vaciarInputs(){
   document.getElementById("celular").value = ""
 }
 
+function crearDesayuno() {
+  fieldset.innerHTML = `<h3>Hola usuario.nombre ! Ya podes armar tu desayuno.</h3>
+                        <p>A continuacion veras las opciones disponibles</p>
+                        <p>Elige una porcion de torta</p>                        
+                        <input type="radio" name="chocotorta" id="chocotorta">
+                        <label for=""></label>
+                        <input type="radio" name="pastafrola" id="pastafrola">                       
+                        <label for="">Elige una bebida</label>
+
+                        <p>Elige una porcion de torta</p>                        
+                        <input type="radio" name="chocotorta" id="chocotorta">
+                        <label for=""></label>
+                        <input type="radio" name="pastafrola" id="pastafrola">                       
+                        <label for="">Elige una bebida</label>
+                        <p>Elige una porcion de torta</p>                        
+                        <input type="radio" name="chocotorta" id="chocotorta">
+                        <label for=""></label>
+                        <input type="radio" name="pastafrola" id="pastafrola">                        
+                        <label for="">Elige una bebida</label>
+                        <p>Elige una porcion de torta</p>                        
+                        <input type="radio" name="chocotorta" id="chocotorta">
+                        <label for=""></label>
+                        <input type="radio" name="pastafrola" id="pastafrola">                        
+                        <label for="">Elige una bebida</label>
+
+  
+}
+
 //funcion para validar campos
 function ejecutarFormulario(e) {
   e.preventDefault()
-  if (document.getElementById("nombres").value  != "" &&  document.getElementById("apellidos").value != "" &&  document.getElementById("dni").value > 0 && 
-  document.getElementById("email").value != "" && document.getElementById("celular").value > 0) {
+  if (
+    document.getElementById("nombres").value  != "" &&
+     document.getElementById("apellidos").value != "" && 
+     document.getElementById("dni").value > 0 && 
+     document.getElementById("email").value != "" &&
+     document.getElementById("celular").value > 0) {
   crearUsuario()
   vaciarInputs()
+  }
+  else{
+    alert("Revise que los campos se hayan completado correctamente y vuelva a intentarlo")
   }
 
 }
