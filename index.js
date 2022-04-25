@@ -19,33 +19,48 @@ let desayuno = []
 let totalDesayuno = []
 
 //traigo el div de la lista y la lista
-// let divLista = document.getElementById("divLista")
-// let lista = document.getElementById("lista")
-// let divTotal = document.getElementById("divTotal")
+let fieldset = document.getElementById("fieldset")
+let btnguardar = document.getElementById("btnguardar")
 
-//funcion precio del desayuno
-let preciofinal = () => {
-  const precio = totalDesayuno.reduce( (acc, item) => {return acc += item }, 0 )  
-  let total = document.createElement("p")
-  total.innerText = "El valor total de su desayuno es: $"+ precio
-  divTotal.appendChild(total)   
+//funcion guardar info contacto
+function crearUsuario() {
+  const nombre = document.getElementById("nombres").value 
+  const apellido = document.getElementById("apellidos").value 
+  const dni = document.getElementById("dni").value
+  const email = document.getElementById("email").value
+  const celular = document.getElementById("celular").value 
+  new Usuario (nombre, apellido, dni, email, celular)
+  localStorage.setItem( Usuario.dni , JSON.stringify(Usuario))
+}
+
+function vaciarInputs(){  
+  document.getElementById("nombres").value  = ""
+  document.getElementById("apellidos").value = ""
+  document.getElementById("dni").value = ""
+  document.getElementById("email").value = ""
+  document.getElementById("celular").value = ""
+}
+
+//funcion para validar campos
+function ejecutarFormulario(e) {
+  e.preventDefault()
+  if (document.getElementById("nombres").value  != "" &&  document.getElementById("apellidos").value != "" &&  document.getElementById("dni").value > 0 && 
+  document.getElementById("email").value != "" && document.getElementById("celular").value > 0) {
+  crearUsuario()
+  vaciarInputs()
+  }
 
 }
 
-//funcion que vacía la lista y reinicia simulador
+//evento para guardar usuario
+btnguardar.addEventListener("click", ejecutarFormulario);
 
-let reiniciar = () =>{
-  lista.innerText = ""
-  divTotal.innerText = ""
-  totalDesayuno = []
-  armadoDesayuno()
-}
-
-//boton que reinicia simulador
-  let botonReiniciar = document.createElement("button")
-  botonReiniciar.innerText = "CREAR NUEVO DESAYUNO"
-  botonReiniciar.onclick = reiniciar
-  botonReiniciar.className = "btn btn-success d-flex justify-content"
+// //funcion precio del desayuno
+// let preciofinal = () => {
+//   const precio = totalDesayuno.reduce( (acc, item) => {return acc += item }, 0 )  
+//   let total = document.createElement("p")
+//   total.innerText = "El valor total de su desayuno es: $"+ precio
+//   divTotal.appendChild(total)   
   
 
 //funcion armado de desayuno
@@ -200,8 +215,4 @@ let armadoDesayuno = () => {
 
 };
 
-let botonComenzar = document.getElementById("btncomenzar")
-botonComenzar.innerText = "¡COMENZAR!"
-botonComenzar.className = "botonComenzar"
-botonComenzar.onclick = armadoDesayuno
 

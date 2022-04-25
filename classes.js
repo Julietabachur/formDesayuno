@@ -8,8 +8,9 @@ class Producto {
 }
 
 class Usuario {
-    constructor (nombreCompleto , dni , email , celular) {
-    this.nombreCompleto = nombreCompleto,
+    constructor (nombre, apellido , dni , email , celular) {
+    this.nombre = nombre,
+    this.apellido = apellido,
     this.dni = dni,
     this.email = email ,
     this.celular = celular

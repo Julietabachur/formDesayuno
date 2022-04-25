@@ -28,28 +28,49 @@
         <p>En vez de ofrecerte un desayuno pensado por nosotros</p>
         <p>te damos opciones para que lo armes como más te gusta</p>        
     </main>
-    <section class="m-5">
+    <section class="m-5 d-flex flex-column align-items-center row justify-content-center">
       <form action="" >
-        <fieldset>
+        <fieldset class="d-flex flex-wrap flex-column justify-content-center" id="fieldset">
           <h2>Ingresá tus datos personales</h2>
-          <div class="d-flex flex-wrap flex-column align-items-start offset-3 col-6 justify-content-start">
-            <label class="fs-4" for="nombres">Nombres
-              <input class="fs-5" type="text" name="nombres" id="nombres" placeholder="Ingresa tus nombres">
+            <div class="d-flex flex-wrap row align-content-center justify-content-center">
+              <label class="fs-4 col-4" for="nombres">Nombres
+                <input class="fs-5" type="text" name="nombres" id="nombres" placeholder="Ingresa tus nombres">
+              </label>
+              <label class="fs-4 col-4" for="apellidos">Apellidos
+                <input class="fs-5" type="text" name="apellidos" id="apellidos" placeholder="Ingresa tus apellidos">
+              </label>
+            </div>            
+            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="DNI">DNI (sin puntos ni guiones) 
+              <input class="fs-5" type="number" name="dni" id="dni" placeholder="Ingresa tu DNI">
             </label>
-            <label class="fs-4" for="apellidos">Apellidos
-              <input class="fs-5" type="text" name="apellidos" id="apellidos" placeholder="Ingresa tus apellidos">
-            </label>
-            <label class="fs-4" for="DNI">DNI (sin puntos ni guiones)
-              <input class="fs-5" type="number" name="DNI" id="DNI" placeholder="Ingresa tu DNI">
-            </label>
-            <label class="fs-4" for="email">Email
-              <input class="fs-5"  type="email" name="email" id="email" placeholder="Ingresa tu email">
-            </label>
-            <label class="fs-4" for="celular">Numero de contacto
-              <input class="fs-5" type="tel" name="celular" id="celular" placeholder="Ingresa tu celular">
-            </label>
-          </div>
-          <input class="btn" type="submit" value="Guardar">
+            <div class="d-flex flex-wrap row align-content-center row justify-content-center">
+              <label class="fs-4 col-4" for="email">Email
+                <input class="fs-5"  type="email" name="email" id="email" placeholder="Ingresa tu email">
+              </label>
+              <label class="fs-4 col-5" for="celular">Numero de contacto
+                <input class="fs-5" type="tel" name="celular" id="celular" placeholder="Ingresa tu celular">
+              </label>
+            </div class="d-flex flex-wrap row align-content-center row justify-content-center"> 
+            <div>
+              <input class="btn" type="submit" value="Guardar" id="btnguardar">
+            </div>
+            <h3></h3>
+            <label for=""></label>
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <label for=""></label>
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <label for=""></label>
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <label for=""></label>
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+
+            
+
+
         </fieldset>
       </form>
     </section>

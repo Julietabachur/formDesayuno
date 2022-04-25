@@ -132,6 +132,7 @@ main p{
     font-weight: 400;
     padding: 0.6rem;
     margin: 1rem;
+    width: 10rem;
 }
 
 .btn:hover{
