@@ -14,6 +14,9 @@ const cafe = new Producto ("Cafe", 300, 1, "Cafe con leche");
 const taza = new Producto ("Taza", 700, 1, "Taza de cerámica");
 const peluche = new Producto ("Peluche", 1500, 1, "Peluche con corazon");
 
+//creo usuario vacío
+let user = new Usuario ("","","","","")
+
 //arrays vacios de desayuno y precio el desayuno
 let desayuno = []
 let totalDesayuno = []
@@ -44,28 +47,28 @@ function vaciarInputs(){
 function formDesayuno() {
   let formDesayuno = document.createElement("div")
   fieldset.appendChild(formDesayuno)
-  formDesayuno.innerHTML = `<h3>Hola user.nombre! Ya podes armar tu desayuno.</h3>
+  formDesayuno.innerHTML=   `<h3>Hola user.nombre! Ya podes armar tu desayuno.</h3>
                             <p>A continuacion veras las opciones disponibles</p>
                             <p>Elige una porcion de torta</p>                        
-                            <input type="radio" name="tortas" id="chocotorta">Chocotorta
-                            <input type="radio" name="tortas" id="pastafrola">Pastafrola
+                            <input class="inputDesayuno" type="radio" name="tortas" id="chocotorta">Chocotorta
+                            <input class="inputDesayuno" type="radio" name="tortas" id="pastafrola">Pastafrola
                             <p>Elige una bebida</p>                        
-                            <input type="radio" name="bebida" id="limonada">Un vaso de limonada
-                            <input type="radio" name="bebida" id="cafe">Una taza de cafe con leche
+                            <input class="inputDesayuno" type="radio" name="bebida" id="limonada">Un vaso de limonada
+                            <input class="inputDesayuno" type="radio" name="bebida" id="cafe">Una taza de cafe con leche
                             <p>Elige algo salado para cortar con tanto dulce!</p>                        
-                            <input type="radio" name="salado" id="chipa">3 chipas grandes
-                            <input type="radio" name="salado" id="tostado">1 tostado de J&Q
+                            <input class="inputDesayuno" type="radio" name="salado" id="chipa">3 chipas grandes
+                            <input class="inputDesayuno" type="radio" name="salado" id="tostado">1 tostado de J&Q
                             <p>Te gustaria sumar un regalo?</p>                        
-                            <input type="radio" name="regalo" id="peluche">1 peluche
-                            <input type="radio" name="regalo" id="taza">1 taza
-                            <input type="radio" name="regalo" id="negativo">No, gracias.`
+                            <input class="inputDesayuno" type="radio" name="regalo" id="peluche">1 peluche
+                            <input class="inputDesayuno" type="radio" name="regalo" id="taza">1 taza
+                            <input class="inputDesayuno" type="radio" name="regalo" id="negativo">No, gracias.`
 }
 
 //funcion para validar campos
 function ejecutarFormulario(e) {
   e.preventDefault()
   if (
-    document.getElementById("nombres").value  != "" &&
+     document.getElementById("nombres").value  != "" &&
      document.getElementById("apellidos").value != "" && 
      document.getElementById("dni").value > 0 && 
      document.getElementById("email").value != "" &&
