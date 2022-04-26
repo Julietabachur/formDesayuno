@@ -45,9 +45,10 @@ function vaciarInputs(){
 }
 
 function formDesayuno() {
+  const nombre = document.getElementById("nombres").value 
   let formDesayuno = document.createElement("div")
   fieldset.appendChild(formDesayuno)
-  formDesayuno.innerHTML=   `<h3>Hola user.nombre! Ya podes armar tu desayuno.</h3>
+  formDesayuno.innerHTML=   `<h3>Hola ${nombre}! Ya podes armar tu desayuno.</h3>
                             <p>A continuacion veras las opciones disponibles</p>
                             <p>Elige una porcion de torta</p>                        
                             <input class="inputDesayuno" type="radio" name="tortas" id="chocotorta">Chocotorta
