@@ -29,8 +29,8 @@ function crearUsuario() {
   const dni = document.getElementById("dni").value
   const email = document.getElementById("email").value
   const celular = document.getElementById("celular").value 
-  new Usuario (nombre, apellido, dni, email, celular)
-  localStorage.setItem (Usuario.dni, JSON.stringify(Usuario))
+  user = new Usuario (nombre, apellido, dni, email, celular)
+  localStorage.setItem (user.dni, JSON.stringify(user))
 }
 
 function vaciarInputs(){  
@@ -41,32 +41,24 @@ function vaciarInputs(){
   document.getElementById("celular").value = ""
 }
 
-function crearDesayuno() {
-  fieldset.innerHTML = `<h3>Hola usuario.nombre ! Ya podes armar tu desayuno.</h3>
-                        <p>A continuacion veras las opciones disponibles</p>
-                        <p>Elige una porcion de torta</p>                        
-                        <input type="radio" name="chocotorta" id="chocotorta">
-                        <label for=""></label>
-                        <input type="radio" name="pastafrola" id="pastafrola">                       
-                        <label for="">Elige una bebida</label>
-
-                        <p>Elige una porcion de torta</p>                        
-                        <input type="radio" name="chocotorta" id="chocotorta">
-                        <label for=""></label>
-                        <input type="radio" name="pastafrola" id="pastafrola">                       
-                        <label for="">Elige una bebida</label>
-                        <p>Elige una porcion de torta</p>                        
-                        <input type="radio" name="chocotorta" id="chocotorta">
-                        <label for=""></label>
-                        <input type="radio" name="pastafrola" id="pastafrola">                        
-                        <label for="">Elige una bebida</label>
-                        <p>Elige una porcion de torta</p>                        
-                        <input type="radio" name="chocotorta" id="chocotorta">
-                        <label for=""></label>
-                        <input type="radio" name="pastafrola" id="pastafrola">                        
-                        <label for="">Elige una bebida</label>
-
-  
+function formDesayuno() {
+  let formDesayuno = document.createElement("div")
+  fieldset.appendChild(formDesayuno)
+  formDesayuno.innerHTML = `<h3>Hola user.nombre! Ya podes armar tu desayuno.</h3>
+                            <p>A continuacion veras las opciones disponibles</p>
+                            <p>Elige una porcion de torta</p>                        
+                            <input type="radio" name="tortas" id="chocotorta">Chocotorta
+                            <input type="radio" name="tortas" id="pastafrola">Pastafrola
+                            <p>Elige una bebida</p>                        
+                            <input type="radio" name="bebida" id="limonada">Un vaso de limonada
+                            <input type="radio" name="bebida" id="cafe">Una taza de cafe con leche
+                            <p>Elige algo salado para cortar con tanto dulce!</p>                        
+                            <input type="radio" name="salado" id="chipa">3 chipas grandes
+                            <input type="radio" name="salado" id="tostado">1 tostado de J&Q
+                            <p>Te gustaria sumar un regalo?</p>                        
+                            <input type="radio" name="regalo" id="peluche">1 peluche
+                            <input type="radio" name="regalo" id="taza">1 taza
+                            <input type="radio" name="regalo" id="negativo">No, gracias.`
 }
 
 //funcion para validar campos
@@ -79,7 +71,7 @@ function ejecutarFormulario(e) {
      document.getElementById("email").value != "" &&
      document.getElementById("celular").value > 0) {
   crearUsuario()
-  vaciarInputs()
+  formDesayuno()
   }
   else{
     alert("Revise que los campos se hayan completado correctamente y vuelva a intentarlo")
@@ -99,7 +91,7 @@ btnguardar.addEventListener("click", ejecutarFormulario);
   
 
 //funcion armado de desayuno
-let armadoDesayuno = () => { 
+  let armadoDesayuno = () => { 
   let opcionTorta = "Seleccione la torta deseada\n";
   opcionTorta += "1. Chocotorta\n";
   opcionTorta += "2. Pastafrola\n";
@@ -249,5 +241,3 @@ let armadoDesayuno = () => {
     }
 
 };
-
-
