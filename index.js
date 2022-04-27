@@ -1,25 +1,34 @@
-//tortas
-const chocotorta = new Producto ("Chocotorta", 400, 1, "Crema de dulce de leche y queso con chocolinas");
-const pastafrola = new Producto ("Pastafrola", 350, "Masa frola rellena de dulce de membrillo");
+//arrays vacios de opcionesDesayuno, desayunoElegido y precio el desayunoElegidoPrecio
+let opcionesDulces = []
+let opcionesSaladas = []
+let opcionesBebidas = []
+let opcionesRegalos = []
+let desayunoElegido = []
+let totalDesayunoElegido = []
 
-//salado
-const chipa = new Producto ("Chipa", 250, 3, "Chipa casero de 2 quesos" );
-const sandwich = new Producto ("Sandwich", 500, 4, "4 triangulos de miga" );
+//tortas y lo pusheo a su array correspondiente
+const chocotorta = new Producto ("Chocotorta", dulce, 400, 1, "Crema de dulce de leche y queso con chocolinas");
+const pastafrola = new Producto ("Pastafrola", dulce, 350, 1, "Masa frola rellena de dulce de membrillo");
+opcionesDulces.push(chocotorta)
+opcionesDulces.push(pastafrola)
 
-//bebida
-const limonada = new Producto ("Limonada", 250, 1,"Limonada con menta y jengibre");
-const cafe = new Producto ("Cafe", 300, 1, "Cafe con leche");
+//salado y lo pusheo a su array correspondiente
+const chipa = new Producto ("Chipa", salado, 250, 3, "Chipa casero de 2 quesos" );
+const tostado= new Producto ("Tostado", salado, 500, 4, "4 triangulos de miga" );
+opcionesSaladas.push(chipa)
+opcionesSaladas.push(tostado)
 
-//regalo
-const taza = new Producto ("Taza", 700, 1, "Taza de cerámica");
-const peluche = new Producto ("Peluche", 1500, 1, "Peluche con corazon");
+//bebida y lo pusheo a su array correspondiente
+const limonada = new Producto ("Limonada", bebida, 250, 1,"Limonada con menta y jengibre");
+const cafe = new Producto ("Cafe", bebida, 300, 1, "Cafe con leche");
+opcionesBebidas.push(limonada)
+opcionesBebidas.push(cafe)
 
-//creo usuario vacío
-let user = new Usuario ("","","","","")
-
-//arrays vacios de desayuno y precio el desayuno
-let desayuno = []
-let totalDesayuno = []
+//regalo y lo pusheo a su array correspondiente
+const taza = new Producto ("Taza", regalo, 700, 1, "Taza de cerámica");
+const peluche = new Producto ("Peluche", regalo, 1500, 1, "Peluche con corazon");
+opcionesRegalos.push(taza)
+opcionesRegalos.push(peluche)
 
 //traigo el fieldset y boton
 let fieldset = document.getElementById("fieldset")
@@ -45,6 +54,10 @@ function vaciarInputs(){
 }
 
 function formDesayuno() {
+  opcionesDulces.forEach((opcion) => {
+    const opcion = document.createElement("option");
+    opcion.innerText = `${opcion.nombre} a $${opcion.precio}`;
+})
   const nombre = document.getElementById("nombres").value 
   let formDesayuno = document.createElement("div")
   fieldset.appendChild(formDesayuno)
