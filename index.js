@@ -51,18 +51,30 @@ function formDesayuno() {
   formDesayuno.innerHTML=   `<h3>Hola ${nombre}! Ya podes armar tu desayuno.</h3>
                             <p>A continuacion veras las opciones disponibles</p>
                             <p>Elige una porcion de torta</p>                        
-                            <input class="inputDesayuno" type="radio" name="tortas" id="chocotorta">Chocotorta
-                            <input class="inputDesayuno" type="radio" name="tortas" id="pastafrola">Pastafrola
-                            <p>Elige una bebida</p>                        
-                            <input class="inputDesayuno" type="radio" name="bebida" id="limonada">Un vaso de limonada
-                            <input class="inputDesayuno" type="radio" name="bebida" id="cafe">Una taza de cafe con leche
-                            <p>Elige algo salado para cortar con tanto dulce!</p>                        
-                            <input class="inputDesayuno" type="radio" name="salado" id="chipa">3 chipas grandes
-                            <input class="inputDesayuno" type="radio" name="salado" id="tostado">1 tostado de J&Q
-                            <p>Te gustaria sumar un regalo?</p>                        
-                            <input class="inputDesayuno" type="radio" name="regalo" id="peluche">1 peluche
-                            <input class="inputDesayuno" type="radio" name="regalo" id="taza">1 taza
-                            <input class="inputDesayuno" type="radio" name="regalo" id="negativo">No, gracias.`
+                            <select name="tortas">
+                              <option value="vacio" id="vacio"></option>
+                              <option value="chocotorta" id="chocotorta">Chocotorta</option>
+                              <option value="pastafrola" id="pastafrola">pastafrola</option>
+                            </select>
+                            <p>Elige una bebida</p>  
+                            <select name="bebidas">
+                              <option value="vacio" id="vacio"></option>
+                              <option value="limonada" id="limonada">Un vaso de limonada</option>
+                              <option value="cafe" id="cafe">Una taza de cafe con leche</option>
+                            </select> 
+                            <p>Elige algo salado para cortar con tanto dulce!</p>
+                            <select name="salado">
+                              <option value="vacio" id="vacio"></option>
+                              <option value="chipa" id="chipa">3 chipas grandes</option>
+                              <option value="cafe" id="cafe">Una taza de cafe con leche</option>
+                            </select>      
+                            <p>Te gustaria sumar un regalo?</p>   
+                            <select name="regalo">
+                              <option value="vacio" id="vacio"></option>
+                              <option value="peluche" id="peluche">1 peluche</option>
+                              <option value="taza" id="taza">1 taza</option>
+                              <option value="negativo" id="negativo">No, gracias.</option>
+                            </select> `
 }
 
 //funcion para validar campos
@@ -82,6 +94,10 @@ function ejecutarFormulario(e) {
   }
 
 }
+
+// if (document.getElementById("chocotorta").checked){
+
+// }
 
 //evento para guardar usuario
 btnguardar.addEventListener("click", ejecutarFormulario);
