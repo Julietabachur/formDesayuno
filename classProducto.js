@@ -1,5 +1,5 @@
 class Producto {
-    constructor (nombre , tipo, precio , descripcion, cantidad) {
+    constructor (nombre , tipo, precio , cantidad, descripcion ) {
        this.nombre = nombre,
        this.tipo = tipo,
        this.precio = precio,

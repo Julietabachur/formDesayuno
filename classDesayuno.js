@@ -1,4 +1,4 @@
-class Producto {
+class Desayuno {
     constructor (nombreUsuario , torta , bebida, salado) {
        this.nombreUsuario = nombreUsuario,
        this.torta = torta,
