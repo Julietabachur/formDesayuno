@@ -1,34 +1,26 @@
 //arrays vacios de opcionesDesayuno, desayunoElegido y precio el desayunoElegidoPrecio
-let opcionesDulces = []
-let opcionesSaladas = []
-let opcionesBebidas = []
-let opcionesRegalos = []
-let desayunoElegido = []
-let totalDesayunoElegido = []
+let stockDulce = []
+let stockSalado = []
+let stockBebidas = []
+let stockRegalos = []
+let desayuno = []
 
 //tortas y lo pusheo a su array correspondiente
-const chocotorta = new Producto ("Chocotorta", "dulce", 400, 1, "Crema de dulce de leche y queso con chocolinas");
-const pastafrola = new Producto ("Pastafrola", "dulce", 350, 1, "Masa frola rellena de dulce de membrillo");
-opcionesDulces.push(chocotorta)
-opcionesDulces.push(pastafrola)
+stockDulce.push(new Producto ("Chocotorta",400,"Crema de dulce de leche y queso con chocolinas"))
+stockDulce.push(new Producto ("Pastafrola",350,"Masa frola rellena de dulce de membrillo"))
 
 //salado y lo pusheo a su array correspondiente
-const chipa = new Producto ("Chipa", "salado", 250, 3, "Chipa casero de 2 quesos" );
-const tostado= new Producto ("Tostado", "salado", 500, 4, "4 triangulos de miga" );
-opcionesSaladas.push(chipa)
-opcionesSaladas.push(tostado)
+stockSalado.push(new Producto ("Chipa", 250,"Chipa casero de 2 quesos"))
+stockSalado.push(new Producto ("Tostado",500,"4 triangulos de miga" ))
 
 //bebida y lo pusheo a su array correspondiente
-const limonada = new Producto ("Limonada", "bebida", 250, 1,"Limonada con menta y jengibre");
-const cafe = new Producto ("Cafe", "bebida", 300, 1, "Cafe con leche");
-opcionesBebidas.push(limonada)
-opcionesBebidas.push(cafe)
+stockBebidas.push(new Producto ("Limonada",250,"Limonada con menta y jengibre"))
+stockBebidas.push(new Producto ("Cafe",300,"Cafe con leche"))
 
 //regalo y lo pusheo a su array correspondiente
-const taza = new Producto ("Taza", "regalo", 700, 1, "Taza de cerámica");
-const peluche = new Producto ("Peluche", "regalo", 1500, 1, "Peluche con corazon");
-opcionesRegalos.push(taza)
-opcionesRegalos.push(peluche)
+stockRegalos.push(new Producto ("Taza",700,"Taza de cerámica"))
+stockRegalos.push(new Producto ("Peluche", 1500,"Peluche con corazon"))
+stockRegalos.push(new Producto ("Sin regalo", 0,"sin regalo"))
 
 //traigo el fieldset y boton
 let fieldset = document.getElementById("fieldset")

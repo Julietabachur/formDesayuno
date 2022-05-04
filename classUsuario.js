@@ -1,7 +1,6 @@
 class Usuario {
-    constructor (nombre, apellido , dni , email , celular) {
-    this.nombre = nombre,
-    this.apellido = apellido,
+    constructor (nombreCompleto, dni , email , celular) {
+    this.nombreCompleto = nombreCompleto,
     this.dni = dni,
     this.email = email ,
     this.celular = celular
