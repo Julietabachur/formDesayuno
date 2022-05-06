@@ -110,6 +110,11 @@ h2{
     margin-left: 3rem;
 }
 
+.form-label {
+    margin: 1.5rem;
+    color: palevioletred
+}
+
 
 main{
     padding: 5rem;

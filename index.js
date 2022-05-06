@@ -20,11 +20,12 @@ stockBebidas.push(new Producto ("Cafe",300,"Cafe con leche"))
 //regalo y lo pusheo a su array correspondiente
 stockRegalos.push(new Producto ("Taza",700,"Taza de cerámica"))
 stockRegalos.push(new Producto ("Peluche", 1500,"Peluche con corazon"))
-stockRegalos.push(new Producto ("Sin regalo", 0,"sin regalo"))
+stockRegalos.push(new Producto ("Sin regalo", 0,"tu desayuno no incluye ningún regalo"))
 
 //traigo el fieldset y boton
 let formUsuario = document.getElementById("formUsuario")
 let btnguardar = document.getElementById("btnguardar")
+let formularioDesayuno = document.getElementById("formDesayuno")
 
 //funcion guardar info contacto
 function crearUsuario() {
@@ -43,7 +44,7 @@ function vaciarInputs(){
   document.getElementById("celular").value = ""
 }
 
-function formDesayuno() {
+function armarDesayuno() {
   //creo formulario para armar desayuno
   const nombreCompleto = document.getElementById("nombreCompleto").value 
   let formDesayuno= document.getElementById("formDesayuno")
@@ -51,7 +52,7 @@ function formDesayuno() {
                             <p>A continuacion veras las opciones disponibles</p>`
   //creo divdulce en donde appendo el select 
   let divDulce = document.createElement("div")
-  divDulce.innerHTML = `<p>Elige una porcion de torta</p>
+  divDulce.innerHTML = `<p class="form-label fs-3 text">Elige una porcion de torta</p>
                         <select id="selectDulce" name="dulce"></select>`
   formDesayuno.appendChild(divDulce)
 
@@ -66,7 +67,7 @@ function formDesayuno() {
 
   //creo divSalado en donde appendo el select 
   let divSalado = document.createElement("div")
-  divSalado.innerHTML = `<p>Elige algo salado!</p>
+  divSalado.innerHTML = `<p class="form-label fs-3 text">Elige algo salado!</p>
                         <select id="selectSalado" name="salado"></select>`
   formDesayuno.appendChild(divSalado)
 
@@ -81,7 +82,7 @@ function formDesayuno() {
 
   //creo divBebida en donde appendo el select 
   let divBebida = document.createElement("div")
-  divBebida.innerHTML = `<p>Elige algo para tomar</p>
+  divBebida.innerHTML = `<p class="form-label fs-3 text">Elige algo para tomar</p>
                         <select id="selectBebida" name="bebida"></select>`
   formDesayuno.appendChild(divBebida)
 
@@ -96,7 +97,7 @@ function formDesayuno() {
 
   //creo divRegalo en donde appendo el select 
   let divRegalo = document.createElement("div")
-  divRegalo.innerHTML = `<p>Te gustaría incluir un regalo?</p>
+  divRegalo.innerHTML = `<p class="form-label fs-3 text">Te gustaría incluir un regalo?</p>
                         <select id="selectRegalo" name="regalo"></select>`
   formDesayuno.appendChild(divRegalo)
 
@@ -108,6 +109,12 @@ function formDesayuno() {
     selectSalado.appendChild(opcionRegalo)
     opcionRegalo.value = stockRegalos.indexOf(opcion)
   })
+
+  let confirmar = document.createElement("button")
+  confirmar.className= "btn"
+  confirmar.innerText= "Confirmar"  
+  confirmar.setAttribute("type", "submit")
+  formDesayuno.appendChild(confirmar)
 }
 
 //funcion para validar campos
@@ -119,20 +126,34 @@ function ejecutarFormulario(e) {
      document.getElementById("email").value != "" &&
      document.getElementById("celular").value > 0) {
   crearUsuario()
-  formDesayuno()
+  armarDesayuno()
   }
   else{
-    swal("Revise que los campos se hayan completado correctamente y vuelva a intentarlo");
+    swal("ERROR!", "Revise que los campos se hayan completado correctamente y vuelva a intentarlo", "error");
+  
   }
+}
+
+function crearDesayuno(e) {
+  e.preventDefault()
+  let eleccionDulce = stockDulce[selectDulce.value]
+  let eleccionSalado = stockSalado[selectDulce.value]
+  let eleccionBebida = stockBebidas[selectDulce.value]
+  let eleccionRegalo = stockRegalos[selectDulce.value]
+
+  desayuno.push(new Item (eleccionDulce, 1))
+  desayuno.push(new Item (eleccionSalado, 1))
+  desayuno.push(new Item (eleccionBebida, 1))
+  desayuno.push(new Item (eleccionRegalo, 1))
+  swal("Good job!", "You clicked the button!", "success");
+  swal("HECHO!", "Tu desayuno está listo!", "success");
+
 
 }
 
-// if (document.getElementById("chocotorta").checked){
-
-// }
-
 //evento para guardar usuario
-btnguardar.addEventListener("click", ejecutarFormulario);
+formUsuario.addEventListener("submit", ejecutarFormulario);
+formularioDesayuno.addEventListener("submit", crearDesayuno);
 
 // //funcion precio del desayuno
 // let preciofinal = () => {
