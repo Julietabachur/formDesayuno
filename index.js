@@ -23,7 +23,7 @@ stockRegalos.push(new Producto ("Peluche", 1500,"Peluche con corazon"))
 stockRegalos.push(new Producto ("Sin regalo", 0,"sin regalo"))
 
 //traigo el fieldset y boton
-let fieldset = document.getElementById("fieldset")
+let formUsuario = document.getElementById("formUsuario")
 let btnguardar = document.getElementById("btnguardar")
 
 //funcion guardar info contacto
@@ -122,7 +122,7 @@ function ejecutarFormulario(e) {
   formDesayuno()
   }
   else{
-    alert("Revise que los campos se hayan completado correctamente y vuelva a intentarlo")
+    swal("Revise que los campos se hayan completado correctamente y vuelva a intentarlo");
   }
 
 }

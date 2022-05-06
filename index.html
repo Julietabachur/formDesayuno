@@ -29,30 +29,26 @@
         <p>te damos opciones para que lo armes como más te gusta</p>        
     </main>
     <section class="m-5 d-flex flex-column align-items-center row justify-content-center">
-      <form action="" >
-        <fieldset class="d-flex flex-wrap flex-column justify-content-center" id="fieldset">
+      <form id="formUsuario" action="" class="d-flex flex-wrap flex-column justify-content-center">
           <h2>Ingresá tus datos personales</h2>
-            <div class="d-flex flex-wrap row align-content-center justify-content-center">
-              <label class="fs-4 col-4" for="nombres">Nombre COMPLETO
-                <input class="fs-5" type="text" name="nombres" id="nombreCompleto" placeholder="Ingresa tu nombre COMLPETO">
-              </label>
-            </div>            
-            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="DNI">DNI (sin puntos ni guiones) 
-              <input class="fs-5" type="number" name="dni" id="dni" placeholder="Ingresa tu DNI">
+            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="nombres">Nombre COMPLETO
+              <input class="fs-5 inputs" type="text" name="nombres" id="nombreCompleto" placeholder="Ingresa tu nombre COMLPETO">
             </label>
-            <div class="d-flex flex-wrap row align-content-center row justify-content-center">
-              <label class="fs-4 col-4" for="email">Email
-                <input class="fs-5"  type="email" name="email" id="email" placeholder="Ingresa tu email">
-              </label>
-              <label class="fs-4 col-5" for="celular">Numero de contacto
-                <input class="fs-5" type="tel" name="celular" id="celular" placeholder="Ingresa tu celular">
-              </label>
-            </div> 
+            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="DNI">DNI (sin puntos ni guiones) 
+              <input class="fs-5 inputs" type="number" name="dni" id="dni" placeholder="Ingresa tu DNI">
+            </label>
+            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="email">Email
+              <input class="fs-5 inputs"  type="email" name="email" id="email" placeholder="Ingresa tu email">
+            </label>
+            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="celular">Numero de contacto
+              <input class="fs-5 inputs" type="tel" name="celular" id="celular" placeholder="Ingresa tu celular">
+            </label>
             <div class="d-flex flex-wrap row align-content-center row justify-content-center">
               <input class="btn" type="submit" value="Guardar" id="btnguardar">
             </div>
-            <div id="formDesayuno"></div>
-        </fieldset>
+      </form>
+      <form id="formDesayuno" action="">
+        
       </form>
     </section>
     <footer>
@@ -65,7 +61,9 @@
     </footer>
     <script src="classUsuario.js"></script>
     <script src="classProducto.js"></script>
+    <script src="classItem.js"></script>
     <script src="index.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
 

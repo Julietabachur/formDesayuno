@@ -69,15 +69,6 @@ li{
     border-radius: 2rem;
 }
 
-/* .botonReiniciar{
-    color: white;
-    border: 1.5rem white ;
-    padding: 0.5rem;
-    margin: 1rem;
-    font-size: 1.2rem;
-    border-radius: 2rem;
-} */
-
 #lista{
     list-style: none;
     display: flex;
@@ -114,6 +105,12 @@ h2{
     flex-wrap: wrap;
 }
 
+.inputs{
+    width: 20rem;
+    margin-left: 3rem;
+}
+
+
 main{
     padding: 5rem;
     background-color: palevioletred;
@@ -133,6 +130,7 @@ main p{
     padding: 0.6rem;
     margin: 1rem;
     width: 10rem;
+    margin-left: 0.5rem;
 }
 
 .btn:hover{
@@ -143,7 +141,7 @@ main p{
 
 }
 label{
-    margin: 0.5rem;
+    margin: 1rem;
 }
 
 footer{
