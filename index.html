@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://kit.fontawesome.com/400fae54a9.js" crossorigin="anonymous" rel="stylesheet"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap"rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -20,32 +21,40 @@
           <li>Home</li>
           <li>Shop</li>
           <li>Contacto</li>
+          <li><i class="fa-solid fa-cart-shopping carrito"></i></li>
         </ul>
       </nav>
     </header>
-    <main >      
-        <h1>Arma tu desayuno perfecto</h1>
-        <p>En vez de ofrecerte un desayuno pensado por nosotros</p>
-        <p>te damos opciones para que lo armes como más te gusta</p>        
+    <main id="main" >      
+        <h1 id="mainH1">Arma tu desayuno perfecto</h1>
+        <div class="mainP">
+          <p>En vez de ofrecerte un desayuno pensado por nosotros</p>
+          <p>te damos opciones para que lo armes como más te gusta</p>
+          <button id="btnComencemos">COMENCEMOS</button>
+        </div>                
     </main>
     <section class="m-5 d-flex flex-column align-items-center row justify-content-center">
-      <form id="formUsuario" action="" class="d-flex flex-wrap flex-column justify-content-center">
-          <h2>Ingresá tus datos personales</h2>
-            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="nombres">Nombre COMPLETO
-              <input class="fs-5 inputs" type="text" name="nombres" id="nombreCompleto" placeholder="Ingresa tu nombre COMPLETO">
-            </label>
-            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="DNI">DNI (sin puntos ni guiones) 
-              <input class="fs-5 inputs" type="number" name="dni" id="dni" placeholder="Ingresa tu DNI">
-            </label>
-            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="email">Email
-              <input class="fs-5 inputs"  type="email" name="email" id="email" placeholder="Ingresa tu email">
-            </label>
-            <label class="fs-4 d-flex flex-wrap align-content-center justify-content-center" for="celular">Número de contacto
-              <input class="fs-5 inputs" type="tel" name="celular" id="celular" placeholder="Ingresa tu celular">
-            </label>
-            <div class="d-flex flex-wrap row align-content-center row justify-content-center">
-              <input class="btn" type="submit" value="Guardar" id="btnguardar">
-            </div>
+      <form id="formUsuario" action="" class="d-none flex-wrap flex-column justify-content-center">
+        <h2>Ingresá tus datos personales</h2>
+        <div class="d-flex row align-items-center row justify-content-center">
+          <label class="fs-4 col-3 d-flex flex-wrap align-content-center justify-content-start" for="nombres">Nombre COMPLETO</label>
+          <input class="fs-6 inputsUsuario col-3 d-flex justify-content-start" type="text" name="nombres" id="nombreCompleto" placeholder="Ingresa tu nombre COMPLETO">
+        </div>
+        <div class="d-flex row align-items-center row justify-content-center">
+          <label class="fs-4 col-3 d-flex flex-wrap align-content-center justify-content-start" for="DNI">DNI (sin . ni -)</label>
+          <input class="fs-6 inputsUsuario col-3 d-flex justify-content-start" type="number" name="dni" id="dni" placeholder="Ingresa tu DNI">          
+        </div>
+        <div class="d-flex row align-items-center row justify-content-center">
+          <label class="fs-4 col-3 d-flex flex-wrap align-content-center justify-content-start" for="email">Email</label>
+          <input class="fs-6 inputsUsuario col-3 d-flex justify-content-start"  type="email" name="email" id="email" placeholder="Ingresa tu email">
+        </div>
+        <div class="d-flex row align-items-center row justify-content-center">
+          <label class="fs-4 col-3 d-flex flex-wrap align-content-center justify-content-start" for="celular">Número de contacto</label>
+          <input class="fs-6 inputsUsuario col-3 d-flex justify-content-start" type="tel" name="celular" id="celular" placeholder="Ingresa tu celular">
+        </div> 
+        <div class="d-flex flex-wrap row align-content-center row justify-content-center">
+          <input class="btn" type="submit" value="Guardar" id="btnguardar">
+        </div>
       </form>
       <form id="formDesayuno" action="">  
       </form>

@@ -25,7 +25,20 @@ stockRegalos.push(new Producto ("Sin regalo", 0,"tu desayuno no incluye ningún 
 //traigo el fieldset y boton
 let formUsuario = document.getElementById("formUsuario")
 let btnguardar = document.getElementById("btnguardar")
+let btnComencemos = document.getElementById("btnComencemos")
 let formularioDesayuno = document.getElementById("formDesayuno")
+let carrito = document.querySelector(".carrito")
+let parrafosMain = document.querySelector(".mainP")
+let main = document.getElementById("main")
+let mainH1 = document.getElementById("mainH1")
+
+
+btnComencemos.addEventListener("click", ()=>{
+  mainH1.classList.add("display-4", "m-0")
+  main.classList.add("alturaMain")  
+  parrafosMain.classList.add("d-none") 
+  formUsuario.classList.replace("d-none", "d-flex")
+})
 
 //funcion guardar info contacto
 function crearUsuario() {
@@ -145,7 +158,6 @@ function crearDesayuno(e) {
   desayuno.push(new Item (eleccionSalado, 1))
   desayuno.push(new Item (eleccionBebida, 1))
   desayuno.push(new Item (eleccionRegalo, 1))
-  swal("Good job!", "You clicked the button!", "success");
   swal("HECHO!", "Tu desayuno está listo!", "success");
 
 

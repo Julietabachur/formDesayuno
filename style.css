@@ -105,14 +105,27 @@ h2{
     flex-wrap: wrap;
 }
 
-.inputs{
+.inputsUsuario{
     width: 20rem;
-    margin-left: 3rem;
+}
+
+.inputsUsuario::placeholder{
+    display: flex;
+    justify-content: flex-start;
+    color: palevioletred
 }
 
 .form-label {
     margin: 1.5rem;
     color: palevioletred
+}
+
+.carrito {
+    color: palevioletred;    
+}
+
+.alturaMain{
+  height: 3rem;
 }
 
 
@@ -121,8 +134,12 @@ main{
     background-color: palevioletred;
 }
 
-main p{
+.mainP{
     font-size: 1.5rem;
+    background-color: palevioletred;
+}
+
+main p{
     background-color: palevioletred;
     color: white;
 }
@@ -144,9 +161,6 @@ main p{
     box-shadow: 0px 0px 32px 0px palevioletred;
     border: 0.5rem palevioletred;
 
-}
-label{
-    margin: 1rem;
 }
 
 footer{
