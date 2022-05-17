@@ -22,7 +22,7 @@ stockRegalos.push(new Producto ("Taza",700,"Taza de cerámica"))
 stockRegalos.push(new Producto ("Peluche", 1500,"Peluche con corazon"))
 stockRegalos.push(new Producto ("Sin regalo", 0,"tu desayuno no incluye ningún regalo"))
 
-//traigo el fieldset y boton
+//traigo elementos del DOM
 let formUsuario = document.getElementById("formUsuario")
 let btnguardar = document.getElementById("btnguardar")
 let btnComencemos = document.getElementById("btnComencemos")
@@ -31,6 +31,7 @@ let carrito = document.querySelector(".carrito")
 let parrafosMain = document.querySelector(".mainP")
 let main = document.getElementById("main")
 let mainH1 = document.getElementById("mainH1")
+let contenedorGral = document.getElementById("contenedorGral")
 
 
 btnComencemos.addEventListener("click", ()=>{
@@ -40,7 +41,7 @@ btnComencemos.addEventListener("click", ()=>{
   formUsuario.classList.replace("d-none", "d-flex")
 })
 
-//funcion guardar info contacto
+//funcion crear usuario y guardarlo en localstorage
 function crearUsuario() {
   const nombreCompleto = document.getElementById("nombreCompleto").value 
   const dni = document.getElementById("dni").value
@@ -48,21 +49,17 @@ function crearUsuario() {
   const celular = document.getElementById("celular").value 
   user = new Usuario (nombreCompleto, dni, email, celular)
   localStorage.setItem (user.dni, JSON.stringify(user))
+  mostrarFormDesayuno()
 }
 
-function vaciarInputs(){  
-  document.getElementById("nombres").value  = ""
-  document.getElementById("dni").value = ""
-  document.getElementById("email").value = ""
-  document.getElementById("celular").value = ""
-}
 
-function armarDesayuno() {
+function mostrarFormDesayuno() {
   //creo formulario para armar desayuno
+  formUsuario.classList.replace("d-flex", "d-none")
   const nombreCompleto = document.getElementById("nombreCompleto").value 
   let formDesayuno= document.getElementById("formDesayuno")
-  formDesayuno.innerHTML=   `<h3>Hola ${nombreCompleto}! Ya podes armar tu desayuno.</h3>
-                            <p>A continuacion veras las opciones disponibles</p>`
+  formDesayuno.innerHTML=   `<h3>Hola ${nombreCompleto}! Ya podés armar tu desayuno</h3>
+                            <p>A continuacion verás las opciones disponibles</p>`
   //creo divdulce en donde appendo el select 
   let divDulce = document.createElement("div")
   divDulce.innerHTML = `<p class="form-label fs-3 text">Elige una porcion de torta</p>
@@ -130,35 +127,46 @@ function armarDesayuno() {
   formDesayuno.appendChild(confirmar)
 }
 
+function validarCampos() {
+  let camposCompletos = (document.getElementById("nombreCompleto").value  != "" &&
+  document.getElementById("dni").value > 0 && 
+  document.getElementById("email").value != "" &&
+  document.getElementById("celular").value > 0) ? true : false
+
+  camposCompletos ?  crearUsuario() : swal("ERROR!", "Revise que los campos se hayan completado correctamente y vuelva a intentarlo", "error");
+}
+
 //funcion para validar campos
 function ejecutarFormulario(e) {
   e.preventDefault()
-  if (
-     document.getElementById("nombreCompleto").value  != "" &&
-     document.getElementById("dni").value > 0 && 
-     document.getElementById("email").value != "" &&
-     document.getElementById("celular").value > 0) {
-  crearUsuario()
-  armarDesayuno()
+  validarCampos()
   }
-  else{
-    swal("ERROR!", "Revise que los campos se hayan completado correctamente y vuelva a intentarlo", "error");
-  
-  }
-}
 
 function crearDesayuno(e) {
   e.preventDefault()
   let eleccionDulce = stockDulce[selectDulce.value]
-  let eleccionSalado = stockSalado[selectDulce.value]
-  let eleccionBebida = stockBebidas[selectDulce.value]
-  let eleccionRegalo = stockRegalos[selectDulce.value]
+  let eleccionSalado = stockSalado[selectSalado.value]
+  let eleccionBebida = stockBebidas[selectBebida.value]
+  let eleccionRegalo = stockRegalos[selectRegalo.value]
 
   desayuno.push(new Item (eleccionDulce, 1))
   desayuno.push(new Item (eleccionSalado, 1))
   desayuno.push(new Item (eleccionBebida, 1))
   desayuno.push(new Item (eleccionRegalo, 1))
   swal("HECHO!", "Tu desayuno está listo!", "success");
+
+  let barraLateral = document.createElement("div")
+  barraLateral.innerHTML =  `<h3>Carrito</h3>
+                            <p>Tu desayuno contiene:</p>
+                            <table>
+                              <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                              </tr>
+                            </table>`
+  contenedorGral.appendChild(barraLateral)
+
 
 
 }
@@ -174,184 +182,3 @@ formularioDesayuno.addEventListener("submit", crearDesayuno);
 //   total.innerText = "El valor total de su desayuno es: $"+ precio
 //   divTotal.appendChild(total)   
   
-
-//funcion armado de desayuno
-//   let armadoDesayuno = () => { 
-//   let opcionTorta = "Seleccione la torta deseada\n";
-//   opcionTorta += "1. Chocotorta\n";
-//   opcionTorta += "2. Pastafrola\n";
-
-//   let eleccionTorta = 0;
-
-//   while (eleccionTorta != 1 && eleccionTorta != 2) {
-//     eleccionTorta = parseInt(prompt(opcionTorta));
-//     switch (eleccionTorta) {
-//       case 1: {
-//         desayuno.push(chocotorta.nombre)
-//         totalDesayuno.push(chocotorta.precio)        
-//         let prodLista = document.createElement("li")
-//         prodLista.innerText  = `1 porción de: ${chocotorta.nombre}`;
-//         lista.appendChild(prodLista)
-//         break;
-//       }
-
-//       case 2: {
-//         desayuno.push(pastafrola.nombre)
-//         totalDesayuno.push(pastafrola.precio)
-//         let prodLista = document.createElement("li")
-//         prodLista.innerText  = `1 porción de: ${pastafrola.nombre}`; 
-//         lista.appendChild(prodLista)
-//         break;
-//       }
-
-//       default: {
-//           alert("Elija una torta para continuar");
-//         }
-//         break;
-//     }
-//   }
-
-//   let opcionSalado = "Seleccione algo salado\n";
-//   opcionSalado += "1. Chipa\n";
-//   opcionSalado += "2. Sandwich de jyq\n";
-
-//   let eleccionSalado = 0;
-
-//   while (eleccionSalado != 1 && eleccionSalado != 2) {
-//     eleccionSalado = parseInt(prompt(opcionSalado));
-//     switch (eleccionSalado) {
-//       case 1: {
-//         desayuno.push(chipa.nombre);
-//         totalDesayuno.push(chipa.precio);
-//         let prodLista = document.createElement("li")
-//         prodLista.innerText  = `1 porción de: ${chipa.nombre}`;
-//         lista.appendChild(prodLista)
-//         break;
-//       }
-
-//       case 2: {
-//         desayuno.push(sandwich.nombre);
-//         totalDesayuno.push(sandwich.precio);
-//         let prodLista = document.createElement("li")
-//         prodLista.innerText  = `1 porción de: ${sandwich.nombre}`;
-//         break;
-//       }
-
-//       default:
-//         {
-//           alert("Elija algo salado para continuar");
-//         }
-//         break;
-//     }
-//   }
-
-//   let opcionBebida = "Seleccione la bebida deseada\n";
-//   opcionBebida += "1. Cafe\n";
-//   opcionBebida += "2. Limonada\n";
-
-//   let eleccionBebida = 0;
-
-//   while (eleccionBebida != 1 && eleccionBebida != 2) {
-//     eleccionBebida = parseInt(prompt(opcionBebida));
-//     switch (eleccionBebida) {
-//       case 1: {
-//         desayuno.push(cafe.nombre);
-//         totalDesayuno.push(cafe.precio);
-//         let prodLista = document.createElement("li")
-//         prodLista.innerText  = `1 taza de: ${cafe.nombre}`;
-//         lista.appendChild(prodLista)
-//         break;
-//       }
-
-//       case 2: {
-//         desayuno.push(limonada.nombre);
-//         totalDesayuno.push(limonada.precio);
-//         let prodLista = document.createElement("li")
-//         prodLista.innerText  = `1 vaso de: ${limonada.nombre}`;
-//         lista.appendChild(prodLista)
-//         break;
-//       }
-
-//       default:
-//         {
-//           alert("Elija algo de beber para continuar");
-//         }
-//         break;
-//     }
-//   }
-
-
-//   if (confirm("Le gustaria agregar un regalo?"))  {
-    
-//       let eleccionRegalo = 0;
-
-//       let opcionRegalo = "Seleccione un regalo\n";
-//       opcionRegalo += "1. Taza\n";
-//       opcionRegalo += "2. Peluche\n";
-
-//       while (eleccionRegalo != 1 && eleccionRegalo != 2) {
-//         eleccionRegalo = parseInt(prompt(opcionRegalo));
-
-//         switch (eleccionRegalo) {
-//           case 1: {
-//             desayuno.push(taza.nombre)
-//             totalDesayuno.push(taza.precio)
-//             let prodLista = document.createElement("li")
-//             prodLista.innerText  = `1 regalo: ${taza.nombre}`;
-//             lista.appendChild(prodLista)
-//             preciofinal();
-//             divTotal.appendChild(botonReiniciar)
-//             break;
-//           }
-
-//           case 2: {
-//             desayuno.push(peluche.nombre)
-//             totalDesayuno.push(peluche.precio)
-//             let prodLista = document.createElement("li")
-//             prodLista.innerText  = `1 regalo: ${peluche.nombre}`;
-//             lista.appendChild(prodLista)
-//             preciofinal();
-//             divTotal.appendChild(botonReiniciar)
-//             break;
-//           }
-//         }
-//       }
-//     } else {
-//       let prodLista = document.createElement("li")
-//             prodLista.innerText  = `SIN REGALO`;
-//             lista.appendChild(prodLista)
-//             preciofinal();
-//             divTotal.appendChild(botonReiniciar)
-            
-//     }
-
-// };
-
-
-// `<h3>Hola {nombre}! Ya podes armar tu desayuno.</h3>
-//                             <p>A continuacion veras las opciones disponibles</p>
-//                             <p>Elige una porcion de torta</p>                        
-//                             <select name="tortas">
-//                               <option value="vacio" id="vacio"></option>
-//                               <option value="chocotorta" id="chocotorta"> ${chocotorta.nombre} </option>
-//                               <option value="pastafrola" id="pastafrola">pastafrola</option>
-//                             </select>
-//                             <p>Elige una bebida</p>  
-//                             <select name="bebidas">
-//                               <option value="vacio" id="vacio"></option>
-//                               <option value="limonada" id="limonada">Un vaso de limonada</option>
-//                               <option value="cafe" id="cafe">Una taza de cafe con leche</option>
-//                             </select> 
-//                             <p>Elige algo salado para cortar con tanto dulce!</p>
-//                             <select name="salado">
-//                               <option value="vacio" id="vacio"></option>
-//                               <option value="chipa" id="chipa">3 chipas grandes</option>
-//                               <option value="cafe" id="cafe">Una taza de cafe con leche</option>
-//                             </select>      
-//                             <p>Te gustaria sumar un regalo?</p>   
-//                             <select name="regalo">
-//                               <option value="vacio" id="vacio"></option>
-//                               <option value="peluche" id="peluche">1 peluche</option>
-//                               <option value="taza" id="taza">1 taza</option>
-//                               <option value="negativo" id="negativo">No, gracias.</option>
-//                             </select> `
