@@ -1,26 +1,26 @@
 //arrays vacios de opcionesDesayuno, desayunoElegido y precio el desayunoElegidoPrecio
-let stockDulce = []
-let stockSalado = []
-let stockBebidas = []
-let stockRegalos = []
+// let stockDulce = []
+// let stockSalado = []
+// let stockBebidas = []
+// let stockRegalos = []
 let desayuno = []
 
-//tortas y lo pusheo a su array correspondiente
-stockDulce.push(new Producto ("Chocotorta",400,"Crema de dulce de leche y queso con chocolinas"))
-stockDulce.push(new Producto ("Pastafrola",350,"Masa frola rellena de dulce de membrillo"))
+// //tortas y lo pusheo a su array correspondiente
+// stockDulce.push(new Producto ("Chocotorta",400,"Crema de dulce de leche y queso con chocolinas"))
+// stockDulce.push(new Producto ("Pastafrola",350,"Masa frola rellena de dulce de membrillo"))
 
-//salado y lo pusheo a su array correspondiente
-stockSalado.push(new Producto ("Chipa", 250,"Chipa casero de 2 quesos"))
-stockSalado.push(new Producto ("Tostado",500,"4 triangulos de miga" ))
+// //salado y lo pusheo a su array correspondiente
+// stockSalado.push(new Producto ("Chipa", 250,"Chipa casero de 2 quesos"))
+// stockSalado.push(new Producto ("Tostado",500,"4 triangulos de miga" ))
 
-//bebida y lo pusheo a su array correspondiente
-stockBebidas.push(new Producto ("Limonada",250,"Limonada con menta y jengibre"))
-stockBebidas.push(new Producto ("Cafe",300,"Cafe con leche"))
+// //bebida y lo pusheo a su array correspondiente
+// stockBebidas.push(new Producto ("Limonada",250,"Limonada con menta y jengibre"))
+// stockBebidas.push(new Producto ("Cafe",300,"Cafe con leche"))
 
-//regalo y lo pusheo a su array correspondiente
-stockRegalos.push(new Producto ("Taza",700,"Taza de cerámica"))
-stockRegalos.push(new Producto ("Peluche", 1500,"Peluche con corazon"))
-stockRegalos.push(new Producto ("Sin regalo", 0,"tu desayuno no incluye ningún regalo"))
+// //regalo y lo pusheo a su array correspondiente
+// stockRegalos.push(new Producto ("Taza",700,"Taza de cerámica"))
+// stockRegalos.push(new Producto ("Peluche", 1500,"Peluche con corazon"))
+// stockRegalos.push(new Producto ("Sin regalo", 0,"tu desayuno no incluye ningún regalo"))
 
 //traigo elementos del DOM
 let formUsuario = document.getElementById("formUsuario")
@@ -58,22 +58,46 @@ function mostrarFormDesayuno() {
   formUsuario.classList.replace("d-flex", "d-none")
   const nombreCompleto = document.getElementById("nombreCompleto").value 
   let formDesayuno= document.getElementById("formDesayuno")
-  formDesayuno.innerHTML=   `<h3>Hola ${nombreCompleto}! Ya podés armar tu desayuno</h3>
+  formDesayuno.innerHTML=   `<h3>Hola ${nombreCompleto}!</h3> 
+                            <h3>Ya podés armar tu desayuno</h3>
                             <p>A continuacion verás las opciones disponibles</p>`
   //creo divdulce en donde appendo el select 
   let divDulce = document.createElement("div")
   divDulce.innerHTML = `<p class="form-label fs-3 text">Elige una porcion de torta</p>
-                        <select id="selectDulce" name="dulce"></select>`
+                        <select id="selectDulce" name="dulce"></select>
+                        <p class="form-label fs-3 text">Elige algo salado!</p>
+                        <select id="selectSalado" name="salado"></select>
+                        <p class="form-label fs-3 text">Elige algo para tomar</p>
+                        <select id="selectBebida" name="bebida"></select>
+                        <p class="form-label fs-3 text">Te gustaría incluir un regalo?</p>
+                        <select id="selectRegalo" name="regalo"></select>`
   formDesayuno.appendChild(divDulce)
 
+  //hago fetch de productos.json
+
+  fetch('productos.json')
+  .then((res) => res.json())
+    .then((productos) => {
+      let productosDulces = producto.tipo == "dulce"
+      console.log(productos)
+        productos.forEach((producto) => {
+            
+            let option = document.createElement("option");
+            option.text = producto.nombre;
+            option.value = productos.indexOf(producto);
+            selectDulce.appendChild(option);
+        });
+    })
   //uso un forEach para crear un option por cada producto dentro del array stockDulce y las appendo al selectDulce de arriba
-  stockDulce.forEach( (opcion) => {
-    const opcionDulce = document.createElement("option");
-    opcionDulce.innerText = `${opcion.nombre}: ${opcion.descripcion} a $${opcion.precio}`
-    let selectDulce = document.getElementById("selectDulce")
-    selectDulce.appendChild(opcionDulce)
-    opcionDulce.value = stockDulce.indexOf(opcion)
-  })
+  
+  
+  // stockDulce.forEach( (opcion) => {
+  //   const opcionDulce = document.createElement("option");
+  //   opcionDulce.innerText = `${opcion.nombre}: ${opcion.descripcion} a $${opcion.precio}`
+  //   let selectDulce = document.getElementById("selectDulce")
+  //   selectDulce.appendChild(opcionDulce)
+  //   opcionDulce.value = stockDulce.indexOf(opcion)
+  // })
 
   //creo divSalado en donde appendo el select 
   let divSalado = document.createElement("div")
