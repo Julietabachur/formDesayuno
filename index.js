@@ -77,17 +77,22 @@ function mostrarFormDesayuno() {
 
   fetch('productos.json')
   .then((res) => res.json())
-    .then((productos) => {
-      let productosDulces = producto.tipo == "dulce"
-      console.log(productos)
-        productos.forEach((producto) => {
-            
-            let option = document.createElement("option");
-            option.text = producto.nombre;
-            option.value = productos.indexOf(producto);
-            selectDulce.appendChild(option);
-        });
-    })
+  .then((productos) => {
+    for (const producto of productos) {
+      let productosDulces = producto.tipo === "dulce"
+      console.log(productosDulces)
+    }      
+    
+      productos.forEach((producto) => {
+          
+          let option = document.createElement("option");
+          option.text = producto.nombre;
+          option.value = productos.indexOf(producto);
+          selectDulce.appendChild(option);
+      });
+  })
+
+  }
   //uso un forEach para crear un option por cada producto dentro del array stockDulce y las appendo al selectDulce de arriba
   
   
@@ -99,57 +104,57 @@ function mostrarFormDesayuno() {
   //   opcionDulce.value = stockDulce.indexOf(opcion)
   // })
 
-  //creo divSalado en donde appendo el select 
-  let divSalado = document.createElement("div")
-  divSalado.innerHTML = `<p class="form-label fs-3 text">Elige algo salado!</p>
-                        <select id="selectSalado" name="salado"></select>`
-  formDesayuno.appendChild(divSalado)
+//   //creo divSalado en donde appendo el select 
+//   let divSalado = document.createElement("div")
+//   divSalado.innerHTML = `<p class="form-label fs-3 text">Elige algo salado!</p>
+//                         <select id="selectSalado" name="salado"></select>`
+//   formDesayuno.appendChild(divSalado)
 
-  //uso un forEach para crear un option por cada producto dentro del array stockSalado y las appendo al selectDulce de arriba
-  stockSalado.forEach( (opcion) => {
-    const opcionSalada = document.createElement("option");
-    opcionSalada.innerText = `${opcion.nombre}: ${opcion.descripcion} a $${opcion.precio}`
-    let selectSalado = document.getElementById("selectSalado")
-    selectSalado.appendChild(opcionSalada)
-    opcionSalada.value = stockSalado.indexOf(opcion)
-  })
+//   //uso un forEach para crear un option por cada producto dentro del array stockSalado y las appendo al selectDulce de arriba
+//   stockSalado.forEach( (opcion) => {
+//     const opcionSalada = document.createElement("option");
+//     opcionSalada.innerText = `${opcion.nombre}: ${opcion.descripcion} a $${opcion.precio}`
+//     let selectSalado = document.getElementById("selectSalado")
+//     selectSalado.appendChild(opcionSalada)
+//     opcionSalada.value = stockSalado.indexOf(opcion)
+//   })
 
-  //creo divBebida en donde appendo el select 
-  let divBebida = document.createElement("div")
-  divBebida.innerHTML = `<p class="form-label fs-3 text">Elige algo para tomar</p>
-                        <select id="selectBebida" name="bebida"></select>`
-  formDesayuno.appendChild(divBebida)
+//   //creo divBebida en donde appendo el select 
+//   let divBebida = document.createElement("div")
+//   divBebida.innerHTML = `<p class="form-label fs-3 text">Elige algo para tomar</p>
+//                         <select id="selectBebida" name="bebida"></select>`
+//   formDesayuno.appendChild(divBebida)
 
-   //uso un forEach para crear un option por cada producto dentro del array stockBebidas y las appendo al selectDulce de arriba
-   stockBebidas.forEach( (opcion) => {
-    const opcionBebida = document.createElement("option");
-    opcionBebida.innerText = `${opcion.nombre}: ${opcion.descripcion} a $${opcion.precio}`
-    let selectSalado = document.getElementById("selectBebida")
-    selectSalado.appendChild(opcionBebida)
-    opcionBebida.value = stockBebidas.indexOf(opcion)
-  })
+//    //uso un forEach para crear un option por cada producto dentro del array stockBebidas y las appendo al selectDulce de arriba
+//    stockBebidas.forEach( (opcion) => {
+//     const opcionBebida = document.createElement("option");
+//     opcionBebida.innerText = `${opcion.nombre}: ${opcion.descripcion} a $${opcion.precio}`
+//     let selectSalado = document.getElementById("selectBebida")
+//     selectSalado.appendChild(opcionBebida)
+//     opcionBebida.value = stockBebidas.indexOf(opcion)
+//   })
 
-  //creo divRegalo en donde appendo el select 
-  let divRegalo = document.createElement("div")
-  divRegalo.innerHTML = `<p class="form-label fs-3 text">Te gustaría incluir un regalo?</p>
-                        <select id="selectRegalo" name="regalo"></select>`
-  formDesayuno.appendChild(divRegalo)
+//   //creo divRegalo en donde appendo el select 
+//   let divRegalo = document.createElement("div")
+//   divRegalo.innerHTML = `<p class="form-label fs-3 text">Te gustaría incluir un regalo?</p>
+//                         <select id="selectRegalo" name="regalo"></select>`
+//   formDesayuno.appendChild(divRegalo)
 
-   //uso un forEach para crear un option por cada producto dentro del array stockBebidas y las appendo al selectDulce de arriba
-   stockRegalos.forEach( (opcion) => {
-    const opcionRegalo = document.createElement("option");
-    opcionRegalo.innerText = `${opcion.nombre}: ${opcion.descripcion} a $${opcion.precio}`
-    let selectSalado = document.getElementById("selectRegalo")
-    selectSalado.appendChild(opcionRegalo)
-    opcionRegalo.value = stockRegalos.indexOf(opcion)
-  })
+//    //uso un forEach para crear un option por cada producto dentro del array stockBebidas y las appendo al selectDulce de arriba
+//    stockRegalos.forEach( (opcion) => {
+//     const opcionRegalo = document.createElement("option");
+//     opcionRegalo.innerText = `${opcion.nombre}: ${opcion.descripcion} a $${opcion.precio}`
+//     let selectSalado = document.getElementById("selectRegalo")
+//     selectSalado.appendChild(opcionRegalo)
+//     opcionRegalo.value = stockRegalos.indexOf(opcion)
+//   })
 
-  let confirmar = document.createElement("button")
-  confirmar.className= "btn"
-  confirmar.innerText= "Confirmar"  
-  confirmar.setAttribute("type", "submit")
-  formDesayuno.appendChild(confirmar)
-}
+//   let confirmar = document.createElement("button")
+//   confirmar.className= "btn"
+//   confirmar.innerText= "Confirmar"  
+//   confirmar.setAttribute("type", "submit")
+//   formDesayuno.appendChild(confirmar)
+// }
 
 function validarCampos() {
   let camposCompletos = (document.getElementById("nombreCompleto").value  != "" &&
@@ -191,18 +196,15 @@ function crearDesayuno(e) {
                             </table>`
   contenedorGral.appendChild(barraLateral)
 
-
-
 }
 
 //evento para guardar usuario
 formUsuario.addEventListener("submit", ejecutarFormulario);
 formularioDesayuno.addEventListener("submit", crearDesayuno);
 
-// //funcion precio del desayuno
+// funcion precio del desayuno
 // let preciofinal = () => {
 //   const precio = totalDesayuno.reduce( (acc, item) => {return acc += item }, 0 )  
 //   let total = document.createElement("p")
 //   total.innerText = "El valor total de su desayuno es: $"+ precio
-//   divTotal.appendChild(total)   
-  
+//   divTotal.appendChild(total)}
