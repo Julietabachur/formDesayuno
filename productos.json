@@ -1,11 +1,57 @@
 [
     {
-        "nombre" :
-        "precio " = precio
-       
-        "descripcion " = "descripcion"
+        "nombre" :"Chocotorta",
+        "precio" : 400,       
+        "descripcion" : "Crema de dulce de leche y queso con chocolinas",
+        "tipo":"dulce"
+    },
+    {
+        "nombre" :"Pastafrola",
+        "precio" : 350,       
+        "descripcion" : "Masa frola rellena de dulce de membrillo",
+        "tipo":"dulce"
+    },
+    {
+        "nombre" :"Chipa",
+        "precio" : 250,       
+        "descripcion" : "Chipa casero de 2 quesos",
+        "tipo":"salado"
+    },
+    {
+        "nombre" :"Tostado",
+        "precio" : 500,       
+        "descripcion" : "4 triangulos de miga",
+        "tipo":"salado"
+    },
+    {
+        "nombre" :"Limonada",
+        "precio" : 300,       
+        "descripcion" : "Limonada con menta y jengibre, 300 ml",
+        "tipo":"bebida"
+    },
+    {
+        "nombre" :"Café con leche",
+        "precio" : 250,       
+        "descripcion" : "300 ml",
+        "tipo":"bebida"
+    },
+    {
+        "nombre" :"Taza",
+        "precio" : 700,       
+        "descripcion" : "Taza de cerámica",
+        "tipo":"regalo"
+    },
+    {
+        "nombre" :"Peluche",
+        "precio" : 1500,       
+        "descripcion" : "Peluche con corazon",
+        "tipo":"regalo"
+    },
+    {
+        "nombre" :"Sin regalo",
+        "precio" : 0,       
+        "descripcion" : false,
+        "tipo":"regalo"
     }
-
-
 
 ]
