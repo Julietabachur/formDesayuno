@@ -1,5 +1,5 @@
 [
-    {
+        {
         "nombre" :"Chocotorta",
         "precio" : 400,       
         "descripcion" : "Crema de dulce de leche y queso con chocolinas",
@@ -32,7 +32,7 @@
     {
         "nombre" :"Café con leche",
         "precio" : 250,       
-        "descripcion" : "300 ml",
+        "descripcion" : "300 ml en vaso descartable",
         "tipo":"bebida"
     },
     {
@@ -50,7 +50,7 @@
     {
         "nombre" :"Sin regalo",
         "precio" : 0,       
-        "descripcion" : false,
+        "descripcion" : "-",
         "tipo":"regalo"
     }
 
