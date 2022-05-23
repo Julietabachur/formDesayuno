@@ -16,8 +16,14 @@ header{
 
 }
 
-#logo span{
+a{
+    text-decoration: none;
+
+}
+
+#logo a{
     background-color: white;
+    color: palevioletred;
     font-size: 3rem;
     font-weight: 600;
 }
@@ -42,12 +48,13 @@ ul{
     padding: 0;
 }
 
-li{
+li, li a{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin: 0 1rem;
     background-color: white; 
+    color: palevioletred;
     font-size: 1.5rem;
 }
 

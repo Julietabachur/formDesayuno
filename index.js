@@ -11,11 +11,19 @@ let parrafosMain = document.querySelector(".mainP")
 let main = document.getElementById("main")
 let mainH1 = document.getElementById("mainH1")
 let contenedorGral = document.getElementById("contenedorGral")
-let opcionalRegalo = document.getElementById("opcionalRegalo")
 let divOpciones;
+let desayunoListo;
+let selectDulce;
+let selectSalado;
+let selectBebida;
+let selectRegalo;
 let regaloSi;
 let regaloNo;
 let productos;
+let eleccionDulce 
+let eleccionSalado 
+let eleccionBebida 
+let eleccionRegalo
 
 function mostrarFormDesayuno() {
   //creo formulario para armar desayuno
@@ -33,36 +41,40 @@ function mostrarFormDesayuno() {
                           <select id="selectSalado" name="salado"></select>
                           <p class="form-label fs-3 text">Elige algo para tomar</p>
                           <select id="selectBebida" name="bebida"></select>
-                          <p class="form-label fs-3 text">¿Te gustaría incluir un regalo?</p>
+                          <p id="regaloSiONo" class="form-label fs-3 text">¿Te gustaría incluir un regalo?</p>
                           <button id="regaloSi" class="btn" type="button" value="Si" >Si</button>
                           <button id="regaloNo" class="btn" type="button" value="No" >No</button>`
   formDesayuno.appendChild(divOpciones)
   regaloSi = document.getElementById("regaloSi")
   regaloNo = document.getElementById("regaloNo")
   //evento para mostrar opciones de regalo y btnguardar desayuno
-regaloSi.addEventListener("click", mostrarOpcionesRegalo)
+  regaloSi.addEventListener("click", mostrarOpcionesRegalo)
 
-//evento para mostrar btnguardar desayuno
-regaloNo.addEventListener("click", sinRegalo)
+  //evento para mostrar btnguardar desayuno
+  regaloNo.addEventListener("click", sinRegalo)
 
-  //hago fetch de productos.json
-fetch('productos.json')
-.then((res) => res.json())
-.then(data => {
-  productos = data ;
+  selectDulce = document.getElementById("selectDulce")
+  selectSalado= document.getElementById("selectSalado")
+  selectBebida= document.getElementById("selectBebida")
+  selectRegalo= document.getElementById("selectRegalo")
+    //hago fetch de productos.json
+  fetch('productos.json')
+  .then((res) => res.json())
+  .then(data => {
+    productos = data ;
 
-    //uso un forEach para crear un option por cada producto dentro del array y las appendo a los select de arriba
-    productos.forEach(producto => {
-    let option = document.createElement("option");
-    option.innerText = `${producto.nombre}: ${producto.descripcion} a $${producto.precio}`;
-    option.value = productos.indexOf(producto)
-    for (value in producto) {
-      producto[value] === 'dulce' ? selectDulce.appendChild(option) : null;
-      producto[value] === 'salado' ? selectSalado.appendChild(option) : null;
-      producto[value] === 'bebida' ? selectBebida.appendChild(option) : null;
-    }
-  })
-})  
+      //uso un forEach para crear un option por cada producto dentro del array y las appendo a los select de arriba
+      productos.forEach(producto => {
+      let option = document.createElement("option");
+      option.innerText = `${producto.nombre}: ${producto.descripcion} a $${producto.precio}`;
+      option.value = productos.indexOf(producto)
+      for (value in producto) {
+        producto[value] === 'dulce' ? selectDulce.appendChild(option) : null;
+        producto[value] === 'salado' ? selectSalado.appendChild(option) : null;
+        producto[value] === 'bebida' ? selectBebida.appendChild(option) : null;
+      }
+    })
+  })  
 }
 
 //funcion crear usuario y guardarlo en localstorage
@@ -92,19 +104,66 @@ function ejecutarFormulario(e) {
   validarCampos()
   }
 
+function mostrarOpcionesRegalo(e) {
+  e.preventDefault() 
+  selectRegalo= document.createElement("select");
+  selectRegalo.setAttribute("id", "selectRegalo")
+  desayunoListo= document.createElement("input"); 
+  desayunoListo.innerText = "¡Desayuno listo!" 
+  desayunoListo.setAttribute("type", "submit")
+  desayunoListo.setAttribute("value", "¡Desayuno listo!")
+  desayunoListo.classList.add("btn")
+  regaloSi.classList.add("d-none")
+  regaloNo.classList.add("d-none")
+    productos.forEach(producto => {
+      let option = document.createElement("option");
+      option.innerText = `${producto.nombre}: ${producto.descripcion} a $${producto.precio}`;
+      option.value = productos.indexOf(producto)
+      for (value in producto) {
+        producto[value] === 'regalo' ? selectRegalo.appendChild(option) : null;
+      }  
+    })
 
+    divOpciones.appendChild(selectRegalo)
+    formularioDesayuno.appendChild(desayunoListo)
+}
+
+function sinRegalo(e) {
+  e.preventDefault() 
+  let regaloSiONo = document.getElementById("regaloSiONo")
+  regaloSiONo.classList.add("d-none")
+  regaloSi.classList.add("d-none")
+  regaloNo.classList.add("d-none")
+  let pSinRegalo = document.createElement("p")
+  pSinRegalo.classList.add("form-label", "fs-4", "text", "m-4")
+  pSinRegalo.innerText="Presiona '¡DESAYUNO LISTO!' para finalizar"
+  let divBtnGuardar = document.createElement("div")
+  desayunoListo= document.createElement("input"); 
+  desayunoListo.innerText = "¡Desayuno listo!" 
+  desayunoListo.setAttribute("type", "submit")
+  desayunoListo.setAttribute("value", "¡Desayuno listo!")
+  desayunoListo.classList.add("btn")  
+  divOpciones.appendChild(pSinRegalo)
+  divOpciones.appendChild(divBtnGuardar)
+  formularioDesayuno.appendChild(desayunoListo)
+}
 
 
 function crearDesayuno(e) {
   e.preventDefault() 
-  let eleccionDulce = productos[selectDulce.value]
-  let eleccionSalado = productos[selectSalado.value]
-  let eleccionBebida = productos[selectBebida.value]
-  let eleccionRegalo = productos[selectRegalo.value]
+  formularioDesayuno.classList.add("d-none")
+  eleccionDulce = productos[selectDulce.value]
+  eleccionSalado = productos[selectSalado.value]
+  eleccionBebida = productos[selectBebida.value]
   desayuno.push(new Item (eleccionDulce, 1))
   desayuno.push(new Item (eleccionSalado, 1))
   desayuno.push(new Item (eleccionBebida, 1))
-  desayuno.push(new Item (eleccionRegalo, 1))
+
+  if (selectRegalo != undefined) {
+    eleccionRegalo = productos[selectRegalo.value]    
+    desayuno.push(new Item (eleccionRegalo, 1))
+  } 
+  console.log(desayuno);
   localStorage.setItem (user.nombreCompleto, JSON.stringify(desayuno))
   swal("HECHO!", "Tu desayuno está listo!", "success");
 
@@ -144,47 +203,8 @@ function crearDesayuno(e) {
   tbody.appendChild(rowTotal)
 }
 
-function mostrarOpcionesRegalo(e) {
-  e.preventDefault() 
-  let selectRegalo= document.createElement("select");
-  let desayunoListo= document.createElement("btn"); 
-  desayunoListo.innerText = "¡Desayuno listo!" 
-  desayunoListo.setAttribute("type", "submit")
-  desayunoListo.classList.add("btn")
-  console.log(productos);
-  regaloSi.classList.add("d-none")
-  regaloNo.classList.add("d-none")
-    productos.forEach(producto => {
-      let option = document.createElement("option");
-      option.innerText = `${producto.nombre}: ${producto.descripcion} a $${producto.precio}`;
-      option.value = productos.indexOf(producto)
-      for (value in producto) {
-        producto[value] === 'regalo' ? selectRegalo.appendChild(option) : null;
-      }  
-    })
-
-    divOpciones.appendChild(selectRegalo)
-    formularioDesayuno.appendChild(desayunoListo)
-}
-
-function sinRegalo(e) {
-  e.preventDefault() 
-  let pSinRegalo = document.createElement("p")
-  pSinRegalo.innerText="No agregaste ningun regalo. presiona '¡Desayuno listo!' para finalizar o 'BORRAR TODO' para comenzar de nuevo"
-  let divBtnGuardar = document.createElement("div")
-  let desayunoListo= document.createElement("btn");
-  desayunoListo.innerText = "¡Desayuno listo!"
-  desayunoListo.setAttribute("type", "submit")
-  let resetear = document.createElement("btn");
-  resetear.innerText="BORRAR TODO"
-  resetear.setAttribute("type", "reset")
-  divOpciones.appendChild(divBtnGuardar)
-  divBtnGuardar.appendChild(desayunoListo)
-  divBtnGuardar.appendChild(resetear)
-}
 
 //EVENTOS
-
 
 //evento para ver formulario de usuario
 btnComencemos.addEventListener("click", ()=>{
@@ -203,9 +223,3 @@ formularioDesayuno.addEventListener("submit", crearDesayuno);
 
 
 
-formularioDesayuno.addEventListener("reset", ()=>{
-  document.getElementById("nombreCompleto").value  = ""
-  document.getElementById("dni").value = 0  
-  document.getElementById("email").value = "" 
-  document.getElementById("celular").value = 0
-});
