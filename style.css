@@ -51,14 +51,6 @@ li{
     font-size: 1.5rem;
 }
 
-#divLista{
-    margin: 2rem 0;
-}
-
-#divLista p{
-    font-size: 2rem;
-    color: white;
-}
 
 #btnComencemos {
     background-color: white;
@@ -75,24 +67,6 @@ li{
     color: white;    
     background-color: palevioletred;
     border-width: 2;
-}
-
-
-
-#lista{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: palevioletred;
-}
-
-#lista li{
-    display: flex;
-    margin: 0 15px;
-    background-color: palevioletred; 
-    font-size: 1.5rem;
 }
 
 
@@ -130,9 +104,6 @@ h2{
     color: palevioletred
 }
 
-.carrito {
-    color: palevioletred;    
-}
 
 .alturaMain{
   height: 3rem;
